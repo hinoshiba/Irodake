@@ -59,12 +59,12 @@ if [[ -n "$UNEXPECTED" ]]; then
 fi
 
 echo "==> Verify privacy-sensitive invariants"
-rg -n 'configuration\.capturesAudio = false' Sources/Irodake/Capture/CaptureManager.swift >/dev/null
-if rg -n 'URLSession|NWConnection|Network\.framework|import Network|CFNetwork' Sources Package.swift; then
+grep -nE 'configuration\.capturesAudio = false' Sources/Irodake/Capture/CaptureManager.swift >/dev/null
+if grep -RInE 'URLSession|NWConnection|Network\.framework|import Network|CFNetwork' Sources Package.swift; then
     print -u2 "Network-related code found. Re-run privacy and entitlement review."
     exit 1
 fi
-if rg -n 'CGS[A-Z]|SkyLight|CoreDisplay' Sources; then
+if grep -RInE 'CGS[A-Z]|SkyLight|CoreDisplay' Sources; then
     print -u2 "Private display API marker found."
     exit 1
 fi

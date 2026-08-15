@@ -11,18 +11,14 @@ if [[ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleDisplayName' Info.plist)" !=
     exit 1
 fi
 
-if ! rg -n 'name: "Irodake"|name: "IrodakeTests"|path: "Sources/Irodake"|path: "Tests/IrodakeTests"' Package.swift >/dev/null; then
+if ! grep -nE 'name: "Irodake"|name: "IrodakeTests"|path: "Sources/Irodake"|path: "Tests/IrodakeTests"' Package.swift >/dev/null; then
     print -u2 "Swift package brand identifiers are missing."
     exit 1
 fi
 
-LEGACY=$(rg -n --hidden \
-    --glob '!.git/**' \
-    --glob '!.build/**' \
-    --glob '!dist/**' \
-    --glob '!docs/BRAND_AUDIT.md' \
-    --glob '!Scripts/audit-brand.sh' \
-    'Sukima|sukima|SUKM|com\.hinoshiba\.sukima|github\.com/hinoshiba/Sukima' . || true)
+LEGACY=$(git grep --untracked -nE \
+    'Sukima|sukima|SUKM|com\.hinoshiba\.sukima|github\.com/hinoshiba/Sukima' \
+    -- . ':!docs/BRAND_AUDIT.md' ':!Scripts/audit-brand.sh' || true)
 
 if [[ -n "$LEGACY" ]]; then
     print -u2 "Unexpected legacy brand identifier found:"
