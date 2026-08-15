@@ -1,0 +1,11 @@
+Irodake — Third-Party Software Notices
+======================================
+
+Irodake currently has no third-party source-code or binary dependencies.
+
+It links only to system frameworks supplied by Apple with macOS, including
+AppKit, SwiftUI, ScreenCaptureKit, CoreImage, CoreMedia, CoreVideo, Metal,
+QuartzCore, and Carbon. These frameworks are not redistributed by Irodake and
+are governed by the Apple SDK and operating-system license terms.
+
+The Irodake source code is available under the MIT License. See LICENSE.

@@ -1,0 +1,9 @@
+.DS_Store
+.build/
+dist/
+DerivedData/
+*.xcarchive
+*.dSYM
+*.dmg
+.swiftpm/
+http_dist/download/

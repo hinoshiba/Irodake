@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test-audit:
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Toolchain
+        run: |
+          swift --version
+          xcodebuild -version
+
+      - name: Validate scripts and manifests
+        run: |
+          zsh -n build.sh Scripts/*.sh
+          plutil -lint Info.plist PrivacyInfo.xcprivacy Irodake.entitlements Irodake.direct.entitlements
+          plutil -lint Resources/ja.lproj/InfoPlist.strings Resources/en.lproj/InfoPlist.strings
+          ./Scripts/audit-brand.sh
+
+      - name: Build and test
+        run: |
+          swift build
+          swift test
+
+      - name: Assemble and audit app
+        run: |
+          ./build.sh
+          ./Scripts/audit-release.sh dist/Irodake.app
+
+      - name: Confirm clean dependency graph
+        run: |
+          swift package show-dependencies --format json
