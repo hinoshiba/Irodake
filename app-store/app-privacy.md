@@ -12,7 +12,7 @@ Evidence for version 0.1.0:
 
 Privacy Policy URLs:
 
-- Japanese: `https://www.hinoshiba.com/Irodake/privacy.html`
-- English: `https://www.hinoshiba.com/Irodake/en/privacy.html`
+- Japanese: `https://www.hinoshiba.com/Irodake/#privacy`
+- English: `https://www.hinoshiba.com/Irodake/en/#privacy`
 
 Re-evaluate these answers before any release that adds networking, telemetry, external updates, accounts, cloud sync, or third-party SDKs.

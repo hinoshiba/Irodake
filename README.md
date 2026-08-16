@@ -4,7 +4,7 @@ Irodakeは、Mac全体をグレースケールにしながら選んだ範囲だ�
 
 通常のアプリウインドウとメニューバーの両方から操作できます。画面はこのMac上でリアルタイム処理され、画像・音声の保存、外部送信、テレメトリ、広告はありません。
 
-[公式サイト](https://www.hinoshiba.com/Irodake/) · [English](https://www.hinoshiba.com/Irodake/en/) · [Privacy](https://www.hinoshiba.com/Irodake/privacy.html) · [Support](https://www.hinoshiba.com/Irodake/support.html)
+[公式サイト](https://www.hinoshiba.com/Irodake/) · [English](https://www.hinoshiba.com/Irodake/en/) · [Privacy](https://www.hinoshiba.com/Irodake/#privacy) · [Support](https://www.hinoshiba.com/Irodake/#support)
 
 ![Irodakeのカラーを残すモード](app-store/screenshots/ja/01-keep-color.png)
 
@@ -73,7 +73,7 @@ IrodakeはAppleの公開APIとApp Sandboxの範囲で、ScreenCaptureKitのフ�
 
 Irodakeは画面フレームをGPUで処理しますが、画面画像や音声をファイルへ保存せず、Macの外へ送信しません。ネットワーク通信コードと分析SDKはありません。
 
-正式な日英ポリシーは[Privacy Policy](https://www.hinoshiba.com/Irodake/privacy.html)で公開します。提出用のApp Privacy根拠は[app-store/app-privacy.md](app-store/app-privacy.md)にあります。
+正式な日英ポリシーは公式サイト内の[Privacy Policy](https://www.hinoshiba.com/Irodake/#privacy)で公開します。提出用のApp Privacy根拠は[app-store/app-privacy.md](app-store/app-privacy.md)にあります。
 
 ## OSSと公式配布
 

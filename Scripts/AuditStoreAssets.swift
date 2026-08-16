@@ -37,21 +37,35 @@ private let requiredFiles = [
     "app-store/versions/0.1.0/en-US/whats_new.txt",
     "http_dist/index.html",
     "http_dist/en/index.html",
-    "http_dist/privacy.html",
-    "http_dist/en/privacy.html",
-    "http_dist/support.html",
-    "http_dist/en/support.html",
-    "http_dist/terms.html",
-    "http_dist/en/terms.html",
     "http_dist/assets/site.css",
     "http_dist/assets/favicon.png",
     "http_dist/assets/og.png",
+    "http_dist/assets/sample-keep-color-ja.png",
+    "http_dist/assets/sample-spots-ja.png",
+    "http_dist/assets/sample-inverse-ja.png",
+    "http_dist/assets/sample-privacy-ja.png",
+    "http_dist/assets/sample-keep-color-en.png",
+    "http_dist/assets/sample-spots-en.png",
+    "http_dist/assets/sample-inverse-en.png",
+    "http_dist/assets/sample-privacy-en.png",
     "http_dist/robots.txt",
     "http_dist/sitemap.xml",
 ]
 
 for path in requiredFiles where !fileManager.fileExists(atPath: fileURL(path).path) {
     fail("Missing required submission resource: \(path)")
+}
+
+let legacyStandalonePages = [
+    "http_dist/privacy.html",
+    "http_dist/en/privacy.html",
+    "http_dist/support.html",
+    "http_dist/en/support.html",
+    "http_dist/terms.html",
+    "http_dist/en/terms.html",
+]
+for path in legacyStandalonePages where fileManager.fileExists(atPath: fileURL(path).path) {
+    fail("Content must remain on the localized index page, not in: \(path)")
 }
 
 for path in [
@@ -104,11 +118,11 @@ for locale in locales {
 
 let expectedURLs: [String: String] = [
     "app-store/metadata/ja/marketing_url.txt": "https://www.hinoshiba.com/Irodake/",
-    "app-store/metadata/ja/support_url.txt": "https://www.hinoshiba.com/Irodake/support.html",
-    "app-store/metadata/ja/privacy_policy_url.txt": "https://www.hinoshiba.com/Irodake/privacy.html",
+    "app-store/metadata/ja/support_url.txt": "https://www.hinoshiba.com/Irodake/#support",
+    "app-store/metadata/ja/privacy_policy_url.txt": "https://www.hinoshiba.com/Irodake/#privacy",
     "app-store/metadata/en-US/marketing_url.txt": "https://www.hinoshiba.com/Irodake/en/",
-    "app-store/metadata/en-US/support_url.txt": "https://www.hinoshiba.com/Irodake/en/support.html",
-    "app-store/metadata/en-US/privacy_policy_url.txt": "https://www.hinoshiba.com/Irodake/en/privacy.html",
+    "app-store/metadata/en-US/support_url.txt": "https://www.hinoshiba.com/Irodake/en/#support",
+    "app-store/metadata/en-US/privacy_policy_url.txt": "https://www.hinoshiba.com/Irodake/en/#privacy",
 ]
 for (path, expected) in expectedURLs where text(at: path) != expected {
     fail("Unexpected public URL in \(path)")
@@ -181,7 +195,14 @@ while let url = htmlEnumerator?.nextObject() as? URL {
     for match in linkPattern.matches(in: html, range: range) {
         guard let valueRange = Range(match.range(at: 1), in: html) else { continue }
         var value = String(html[valueRange])
-        if value.hasPrefix("#") || value.hasPrefix("mailto:") || value.contains("://") { continue }
+        if value.hasPrefix("#") {
+            let id = String(value.dropFirst())
+            if !id.isEmpty, !html.contains("id=\"\(id)\"") {
+                fail("Broken page anchor in \(url.lastPathComponent): \(value)")
+            }
+            continue
+        }
+        if value.hasPrefix("mailto:") || value.contains("://") { continue }
         value = value.components(separatedBy: "#")[0]
         value = value.components(separatedBy: "?")[0]
         if value.isEmpty { continue }
