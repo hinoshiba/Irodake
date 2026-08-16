@@ -7,6 +7,7 @@ import UniformTypeIdentifiers
 
 private let root = URL(fileURLWithPath: FileManager.default.currentDirectoryPath, isDirectory: true)
 private let fileManager = FileManager.default
+private let canonicalBundleIdentifier = "irodake.hinoshiba.com"
 private var failures: [String] = []
 
 private func fail(_ message: String) {
@@ -79,6 +80,12 @@ for path in [
     } catch {
         fail("Invalid JSON in \(path): \(error.localizedDescription)")
     }
+}
+
+if let data = try? Data(contentsOf: fileURL("app-store/app.json")),
+   let app = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+   app["bundleIdentifier"] as? String != canonicalBundleIdentifier {
+    fail("app-store/app.json must use bundle identifier \(canonicalBundleIdentifier)")
 }
 
 let characterLimits: [(field: String, limit: Int)] = [

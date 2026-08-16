@@ -64,16 +64,16 @@ if [[ "$MODE" == "dist" ]]; then
     fi
     ./Scripts/make-dmg.sh "$APP"
 elif [[ "$MODE" == "store" ]]; then
-    APP_ID="${IRODAKE_APP_STORE_IDENTITY:-}"
+    APP_SIGNING_IDENTITY="${IRODAKE_APP_STORE_IDENTITY:-}"
     INSTALLER_ID="${IRODAKE_INSTALLER_IDENTITY:-}"
     PROFILE="${IRODAKE_PROVISIONING_PROFILE:-}"
-    if [[ -z "$APP_ID" || -z "$INSTALLER_ID" || ! -f "$PROFILE" ]]; then
+    if [[ -z "$APP_SIGNING_IDENTITY" || -z "$INSTALLER_ID" || ! -f "$PROFILE" ]]; then
         print -u2 "Store build requires IRODAKE_APP_STORE_IDENTITY, IRODAKE_INSTALLER_IDENTITY, and IRODAKE_PROVISIONING_PROFILE."
         exit 1
     fi
     cp "$PROFILE" "$APP/Contents/embedded.provisionprofile"
     codesign --force --options runtime --timestamp \
-        --entitlements Irodake.entitlements --sign "$APP_ID" "$APP"
+        --entitlements Irodake.entitlements --sign "$APP_SIGNING_IDENTITY" "$APP"
     codesign --verify --deep --strict --verbose=2 "$APP"
     VERSION=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" Info.plist)
     PKG="dist/Irodake-${VERSION}-AppStore.pkg"

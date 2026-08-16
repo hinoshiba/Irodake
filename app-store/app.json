@@ -2,7 +2,7 @@
   "platform": "macOS",
   "primaryLanguage": "ja",
   "localizations": ["ja", "en-US"],
-  "bundleIdentifier": "com.hinoshiba.irodake",
+  "bundleIdentifier": "irodake.hinoshiba.com",
   "sku": "irodake-macos",
   "version": "0.1.0",
   "primaryCategory": "public.app-category.utilities",
