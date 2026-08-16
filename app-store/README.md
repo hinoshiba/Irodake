@@ -10,6 +10,12 @@ This directory is the public, non-secret source of truth for Irodake's Mac App S
 
 Copy each text file into the matching App Store Connect field. Register the exact Explicit App ID above and generate the Mac App Store provisioning profile for it before building. Never commit App Store Connect credentials, certificates, provisioning profiles, reviewer phone numbers, private legal addresses, or unreleased commercial terms here.
 
+## Signing policy
+
+Mac App Store releases for Apple Developer Team `94HVVWXLK3` use the existing team-wide Mac App Store distribution private key shared by hinoshiba apps. Both the `Mac App Distribution` and `Mac Installer Distribution` certificates are issued from that key; do not generate an Irodake-specific distribution key. The Explicit App ID and provisioning profile remain app-specific (`com.hinoshiba.irodake`).
+
+Confirm that the shared private key is present in the login keychain before issuing or renewing a certificate. If it is missing, stop and ask the repository owner rather than creating a replacement. Keep its encrypted backup in the owner's approved secret storage only. Private keys, `.p12` files, CSRs, certificates, provisioning profiles, passwords, API keys, and App Store Connect credentials must not be committed.
+
 Run `./Scripts/audit-store-assets.sh` before submission. Screenshots are generated from actual Irodake UI captures by `swift Scripts/MakeStoreScreenshots.swift` and must not be retouched to show behavior the submitted build does not produce. Raw captures live in the gitignored `screenshots/source/<locale>/` workspace; only the reviewed, opaque App Store exports are committed.
 
 The first release does not use a custom EULA, in-app purchases, subscriptions, accounts, analytics, advertising, or third-party content. App privacy is declared as **Data Not Collected**.

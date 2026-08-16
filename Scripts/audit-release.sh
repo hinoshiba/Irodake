@@ -50,7 +50,7 @@ if [[ -d "$APP/Contents/Frameworks" ]]; then
     print -u2 "Unexpected bundled Frameworks directory. Re-run license review."
     exit 1
 fi
-UNEXPECTED=$(otool -L "$APP/Contents/MacOS/Irodake" | awk 'NR > 1 {print $1}' \
+UNEXPECTED=$(otool -L "$APP/Contents/MacOS/Irodake" | awk '/^[[:space:]]/ {print $1}' \
     | while read -r dependency; do
         case "$dependency" in
             /System/Library/*|/usr/lib/*) ;;
