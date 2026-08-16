@@ -14,6 +14,10 @@ fi
 echo "==> Validate property lists"
 plutil -lint Info.plist PrivacyInfo.xcprivacy Irodake.entitlements Irodake.direct.entitlements
 plutil -lint Resources/ja.lproj/InfoPlist.strings Resources/en.lproj/InfoPlist.strings
+if [[ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$APP/Contents/Info.plist")" != "irodake.hinoshiba.com" ]]; then
+    print -u2 "Built app has an unexpected bundle identifier."
+    exit 1
+fi
 
 echo "==> Verify signature and sandbox"
 codesign --verify --deep --strict --verbose=2 "$APP"

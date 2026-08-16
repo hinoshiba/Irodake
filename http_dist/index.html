@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111216">
-  <meta name="description" content="Macの画面をグレースケールにし、必要な場所だけカラーを残せるIrodakeの公式サイトです。">
+  <meta name="description" content="Macの画面をグレースケールにし、必要な場所だけカラーを残せるIrodakeの機能、利用例、プライバシー、サポート情報をまとめた公式サイトです。">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Irodake — 色は、必要な場所だけ。">
   <meta property="og:description" content="Mac全体をグレーに。必要な場所だけカラーのまま。">
@@ -22,19 +22,21 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="./" aria-label="Irodake ホーム">
+    <a class="brand" href="#top" aria-label="Irodake ページ先頭">
       <span class="brand-mark" aria-hidden="true"><span></span></span>
       <span>Irodake</span>
     </a>
     <nav aria-label="メインナビゲーション">
       <a href="#features">機能</a>
-      <a href="support.html">サポート</a>
-      <a href="privacy.html">プライバシー</a>
-      <a href="en/" lang="en">English</a>
+      <a href="#examples">利用例</a>
+      <a href="#privacy">プライバシー</a>
+      <a href="#support">サポート</a>
+      <a href="#terms">利用条件</a>
+      <a class="language-link" href="en/" lang="en" hreflang="en">English</a>
     </nav>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">Selective color for macOS</p>
@@ -53,42 +55,211 @@
       <div class="hero-visual" aria-label="Irodakeアプリのホーム画面">
         <div class="color-orbit orbit-one"></div>
         <div class="color-orbit orbit-two"></div>
-        <img src="assets/app-dashboard-ja.png" width="960" height="680" alt="Irodakeでカラーを残すモードを設定している画面">
+        <img src="assets/app-dashboard-ja.png" width="960" height="680" alt="カラーを残すモードを設定しているIrodakeのホーム画面">
       </div>
     </section>
 
-    <section class="promise" id="features">
-      <article>
-        <span class="number">01</span>
-        <h2>外側をグレーに</h2>
-        <p>画面全体の刺激を抑えながら、選んだ範囲やウインドウ領域だけカラーを残します。</p>
-      </article>
-      <article>
-        <span class="number">02</span>
-        <h2>内側だけグレーに</h2>
-        <p>通常はカラーのまま、気になる場所だけグレーにする逆モードにも切り替えられます。</p>
-      </article>
-      <article>
-        <span class="number">03</span>
-        <h2>1秒で元の色へ</h2>
-        <p>メニューバーとショートカットから一括ON/OFF。押している間だけ全カラーも確認できます。</p>
+    <section class="section-shell" id="features" aria-labelledby="features-title">
+      <header class="section-heading">
+        <p class="eyebrow">Features</p>
+        <h2 id="features-title">集中したい場所に、<span>色を残す。</span></h2>
+        <p>範囲でもウインドウでも。普段の画面を邪魔せず、必要な情報だけを視覚的に際立たせます。</p>
+      </header>
+      <div class="promise">
+        <article>
+          <span class="number">01</span>
+          <h3>外側をグレーに</h3>
+          <p>画面全体の刺激を抑えながら、選んだ範囲やウインドウ領域だけカラーを残します。</p>
+        </article>
+        <article>
+          <span class="number">02</span>
+          <h3>内側だけグレーに</h3>
+          <p>通常はカラーのまま、気になる場所だけグレーにする逆モードにも切り替えられます。</p>
+        </article>
+        <article>
+          <span class="number">03</span>
+          <h3>1秒で元の色へ</h3>
+          <p>メニューバーとショートカットから一括ON/OFF。押している間だけ全カラーも確認できます。</p>
+        </article>
+      </div>
+      <ul class="capability-list" aria-label="その他の機能">
+        <li><strong>固定範囲</strong><span>ドラッグして好きな矩形を追加</span></li>
+        <li><strong>ウインドウ追従</strong><span>移動やリサイズに合わせて追従</span></li>
+        <li><strong>複数ディスプレイ</strong><span>画面ごとにリアルタイム処理</span></li>
+        <li><strong>キーボード操作</strong><span>⌥⌘Gで切り替え、⌥⌘Cでカラーピーク</span></li>
+      </ul>
+    </section>
+
+    <section class="section-shell showcase" id="examples" aria-labelledby="examples-title">
+      <header class="section-heading">
+        <p class="eyebrow">See it in action</p>
+        <h2 id="examples-title">設定から<br class="mobile-break">切り替えまで、<span class="keep-together">画面で確認。</span></h2>
+        <p>実際のアプリ画面を使って、2つの表示モードとスポット管理の流れを紹介します。画像を選ぶと原寸で確認できます。</p>
+      </header>
+      <div class="effect-grid" aria-label="2つの表示モードの比較">
+        <figure class="effect-card">
+          <div class="effect-visual keep-color-effect" role="img" aria-label="画面全体はグレースケールで、選択した右側の範囲だけカラーになっている表示イメージ">
+            <img class="effect-base" src="assets/og.png" width="1200" height="630" loading="lazy" decoding="async" alt="">
+            <img class="effect-layer" src="assets/og.png" width="1200" height="630" loading="lazy" decoding="async" alt="">
+            <span class="effect-selection" aria-hidden="true"></span>
+            <span class="effect-label">カラーを残す</span>
+          </div>
+          <figcaption><strong>外側をグレーに</strong><span>選択範囲の色だけが視界に残ります。</span></figcaption>
+        </figure>
+        <figure class="effect-card">
+          <div class="effect-visual inverse-effect" role="img" aria-label="画面全体はカラーで、選択した右側の範囲だけグレースケールになっている表示イメージ">
+            <img class="effect-base" src="assets/og.png" width="1200" height="630" loading="lazy" decoding="async" alt="">
+            <img class="effect-layer" src="assets/og.png" width="1200" height="630" loading="lazy" decoding="async" alt="">
+            <span class="effect-selection" aria-hidden="true"></span>
+            <span class="effect-label">ここだけグレー</span>
+          </div>
+          <figcaption><strong>内側だけグレーに</strong><span>気になる範囲だけ、色の刺激を抑えます。</span></figcaption>
+        </figure>
+      </div>
+      <div class="showcase-grid">
+        <figure class="showcase-card showcase-card-wide">
+          <a href="assets/sample-keep-color-ja.png" aria-label="カラーを残すモードのサンプル画像を原寸で表示">
+            <img src="assets/sample-keep-color-ja.png" width="1440" height="900" loading="lazy" decoding="async" alt="Irodakeのカラーを残すモード。画面全体をグレーにし、選択した場所だけカラーで表示する設定画面">
+          </a>
+          <figcaption><span class="number">01 — KEEP COLOR</span><h3>必要な場所だけカラーに</h3><p>「カラーを残す」を選び、固定範囲またはウインドウ領域を追加します。</p></figcaption>
+        </figure>
+        <figure class="showcase-card">
+          <a href="assets/sample-spots-ja.png" aria-label="スポット管理のサンプル画像を原寸で表示">
+            <img src="assets/sample-spots-ja.png" width="1440" height="900" loading="lazy" decoding="async" alt="固定範囲とウインドウ領域を一覧で管理するIrodakeのスポット画面">
+          </a>
+          <figcaption><span class="number">02 — SPOTS</span><h3>範囲でも、ウインドウでも</h3><p>複数のスポットをひとつの画面で確認し、必要に応じて追加・削除できます。</p></figcaption>
+        </figure>
+        <figure class="showcase-card">
+          <a href="assets/sample-inverse-ja.png" aria-label="ここだけグレーモードのサンプル画像を原寸で表示">
+            <img src="assets/sample-inverse-ja.png" width="1440" height="900" loading="lazy" decoding="async" alt="選択した場所だけをグレーにするIrodakeの逆モード設定画面">
+          </a>
+          <figcaption><span class="number">03 — INVERSE</span><h3>逆向きにも、すぐ切り替え</h3><p>画面はカラーのまま、選んだ場所だけグレーにする使い方にも対応します。</p></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="availability" id="availability" aria-labelledby="availability-title">
+      <p class="eyebrow">Built for your Mac</p>
+      <h2 id="availability-title">端末の中だけで、静かに動く。</h2>
+      <p>画面フレームはMac上でリアルタイム処理されます。録画ファイル、外部送信、アクセス解析、広告SDKはありません。</p>
+      <div class="requirements">macOS 14 Sonoma以降 · Apple公開API · App Sandbox</div>
+    </section>
+
+    <section class="section-shell policy-section" id="privacy" aria-labelledby="privacy-title">
+      <header class="section-heading">
+        <p class="eyebrow">Privacy Policy</p>
+        <h2 id="privacy-title">画面は、<span>Macの外へ出ません。</span></h2>
+        <p>最終更新日: 2026年8月16日</p>
+      </header>
+      <div class="privacy-overview">
+        <div class="privacy-points">
+          <h3>要点</h3>
+          <ul class="check-list">
+            <li>Irodakeは画面フレームをMac上のメモリ内でリアルタイム処理します。</li>
+            <li>画面画像・動画・音声・ウインドウ名を保存または外部送信しません。</li>
+            <li>アカウント、広告、アクセス解析、クラッシュ送信、第三者SDKはありません。</li>
+          </ul>
+        </div>
+        <a class="privacy-image" href="assets/sample-privacy-ja.png" aria-label="Irodakeのプライバシー設定画面を原寸で表示">
+          <img src="assets/sample-privacy-ja.png" width="1440" height="900" loading="lazy" decoding="async" alt="保存しない、送信しないという設計を示すIrodakeの設定画面">
+        </a>
+      </div>
+      <article class="document policy-grid">
+        <section>
+          <h3>アプリが扱う情報</h3>
+          <h4>画面フレーム</h4>
+          <p>選択した範囲の色を変換するため、macOSのScreenCaptureKitを使用して画面フレームを取得します。フレームは表示効果を作るためにメモリとGPU上で処理され、録画ファイルとして保存されず、Macの外へ送信されません。音声キャプチャは無効です。</p>
+          <h4>設定</h4>
+          <p>表示モード、固定範囲、フレームレート、表示言語などを、このMacのUserDefaultsへ保存します。選択したウインドウの名前と識別子は永続化せず、アプリ終了時に破棄します。</p>
+          <h4>画面収録の許可</h4>
+          <p>Irodakeの動作にはmacOSの「画面収録とシステムオーディオ録音」権限が必要です。許可はmacOSが管理し、システム設定からいつでも取り消せます。Irodakeはシステムオーディオを取得しません。</p>
+        </section>
+        <section>
+          <h3>データ収集と共有</h3>
+          <p>Irodakeアプリは個人データを収集せず、販売・共有もしません。ネットワーク通信機能を持たず、分析・広告・クラッシュレポートSDKを含みません。将来この仕様を変える場合は、実装、App Storeのプライバシー回答、このポリシーを同じリリースで更新します。</p>
+        </section>
+        <section>
+          <h3>設定を削除する</h3>
+          <p>IrodakeをOFFにして終了した後、ターミナルで <code>defaults delete irodake.hinoshiba.com</code> を実行すると、ローカル設定を削除できます。App Sandboxのコンテナが残る場合は、Finderの「フォルダへ移動」で <code>~/Library/Containers/irodake.hinoshiba.com</code> を開き、Irodakeをアンインストールした後に削除できます。Irodake側にサーバーデータは存在しません。</p>
+        </section>
+        <section>
+          <h3>このWebサイト</h3>
+          <p>このサイトはCookie、解析スクリプト、広告、外部Webフォントを使用しません。GitHub Pagesで配信されるため、GitHubはセキュリティと配信のためにIPアドレス等の技術情報を処理する場合があります。詳しくは<a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>をご確認ください。</p>
+        </section>
+        <section>
+          <h3>問い合わせ</h3>
+          <p>本ポリシーについては、<a href="mailto:support@hinoshiba.com">support@hinoshiba.com</a> または<a href="https://github.com/hinoshiba/Irodake/issues">GitHub Issues</a>からご連絡ください。運営者: hinoshiba。</p>
+        </section>
       </article>
     </section>
 
-    <section class="availability" id="availability">
-      <p class="eyebrow">Built for your Mac</p>
-      <h2>端末の中だけで、静かに動く。</h2>
-      <p>画面フレームはMac上でリアルタイム処理されます。録画ファイル、外部送信、アクセス解析、広告SDKはありません。</p>
-      <div class="requirements">macOS 14 Sonoma以降 · Apple公開API · App Sandbox</div>
+    <section class="section-shell" id="support" aria-labelledby="support-title">
+      <header class="section-heading">
+        <p class="eyebrow">Support</p>
+        <h2 id="support-title">困ったときも、<span>すぐ元の画面へ。</span></h2>
+        <p>IrodakeをOFFにすると、表示効果は外れます。</p>
+      </header>
+      <div class="support-cards">
+        <a class="support-card" href="mailto:support@hinoshiba.com">
+          <span class="number">01</span><h3>メール</h3><p>support@hinoshiba.com</p>
+        </a>
+        <a class="support-card" href="https://github.com/hinoshiba/Irodake/issues">
+          <span class="number">02</span><h3>不具合を報告</h3><p>再現手順とmacOSのバージョンを添えてください。</p>
+        </a>
+        <a class="support-card" href="https://github.com/hinoshiba/Irodake/security">
+          <span class="number">03</span><h3>セキュリティ</h3><p>脆弱性は公開IssueではなくSecurity Policyから報告してください。</p>
+        </a>
+      </div>
+      <article class="document support-document faq">
+        <section>
+          <h3>動作環境</h3>
+          <p>macOS 14 Sonoma以降、Metal対応Macが必要です。画面収録の許可を使用します。アクセシビリティ、入力監視、Apple Events、ネットワークの権限は使用しません。</p>
+        </section>
+        <section>
+          <h3>よくある質問</h3>
+          <details open><summary>ONにできません</summary><p>システム設定 → プライバシーとセキュリティ → 画面収録とシステムオーディオ録音でIrodakeを許可し、「終了して再度開く」を選んでください。その後、Irodakeをもう一度ONにします。</p></details>
+          <details><summary>色が復元されません</summary><p>macOS標準のカラーフィルタでグレースケールが有効な場合、Irodakeは元の色を取得できません。システム設定 → アクセシビリティ → ディスプレイでカラーフィルタをOFFにしてください。</p></details>
+          <details><summary>動画が黒や静止画になります</summary><p>DRMや収録保護されたコンテンツは、黒、静止画、または欠落として表示される場合があります。Irodakeは保護を回避しません。</p></details>
+          <details><summary>ウインドウ領域とは何ですか</summary><p>選んだウインドウの現在の矩形へ移動・リサイズ追従します。その上に別のウインドウが重なると、矩形内の重なった部分にも同じ効果がかかります。追跡ルールはアプリ終了時に破棄されます。</p></details>
+          <details><summary>緊急に効果を外したいです</summary><p>メニューバーのIrodakeからOFFにするか、⌥⌘Gを押してください。Irodakeを終了しても効果は外れます。</p></details>
+        </section>
+        <section>
+          <h3>問い合わせ時に添える情報</h3>
+          <ul>
+            <li>Irodakeのバージョン</li>
+            <li>macOSのバージョンとMacのモデル</li>
+            <li>ディスプレイ構成と再現手順</li>
+            <li>個人情報や画面内容を含まないエラーメッセージ</li>
+          </ul>
+          <p>画面全体のスクリーンショットや機密情報を送る必要はありません。</p>
+        </section>
+      </article>
+    </section>
+
+    <section class="section-shell terms-section" id="terms" aria-labelledby="terms-title">
+      <header class="section-heading">
+        <p class="eyebrow">Terms</p>
+        <h2 id="terms-title">公式アプリと、<span>OSSの境界。</span></h2>
+        <p>最終更新日: 2026年8月16日</p>
+      </header>
+      <article class="document terms-grid">
+        <section><h3>Mac App Store版</h3><p>Mac App Storeから入手したIrodakeには、Appleの<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">標準エンドユーザ使用許諾契約</a>と、購入地域に適用される法令・App Storeの条件が適用されます。App Storeの購入、返金、課金処理はAppleが管理します。</p></section>
+        <section><h3>オープンソース版</h3><p>GitHubで公開するIrodakeのソースコードは<a href="https://github.com/hinoshiba/Irodake/blob/main/LICENSE">MIT License</a>で提供します。MIT Licenseは利用、改変、再配布、販売を許可しますが、保証はありません。第三者通知は<a href="https://github.com/hinoshiba/Irodake/blob/main/THIRD_PARTY_LICENSES.txt">THIRD_PARTY_LICENSES.txt</a>をご確認ください。</p></section>
+        <section><h3>名称とロゴ</h3><p>MIT LicenseはIrodakeの名称、ロゴ、公式版であることを示す表示の使用許諾を含みません。詳細は<a href="https://github.com/hinoshiba/Irodake/blob/main/TRADEMARKS.md">Trademark Policy</a>をご確認ください。改変版は公式版と誤認されない名称と表示を使用してください。</p></section>
+        <section><h3>安全な利用</h3><p>Irodakeは表示を変換するユーティリティであり、医療機器や診断・治療サービスではありません。重要な表示、警告、色分けを確認する必要がある場面ではOFFにしてください。DRMや収録保護されたコンテンツは正しく表示されない場合があります。</p></section>
+        <section><h3>問い合わせ</h3><p>公式版のサポートは<a href="#support">このページのサポート欄</a>または<a href="mailto:support@hinoshiba.com">support@hinoshiba.com</a>からご連絡ください。</p></section>
+      </article>
     </section>
   </main>
 
   <footer>
     <span>© 2026 hinoshiba</span>
     <div>
-      <a href="support.html">サポート</a>
-      <a href="privacy.html">プライバシー</a>
-      <a href="terms.html">利用条件</a>
+      <a href="#features">機能</a>
+      <a href="#examples">利用例</a>
+      <a href="#privacy">プライバシー</a>
+      <a href="#support">サポート</a>
+      <a href="#terms">利用条件</a>
       <a href="https://github.com/hinoshiba/Irodake/blob/main/LICENSE">MIT License</a>
     </div>
   </footer>

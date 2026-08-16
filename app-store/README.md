@@ -4,10 +4,11 @@ This directory is the public, non-secret source of truth for Irodake's Mac App S
 
 - Primary language: Japanese (`ja`)
 - Additional localization: English (U.S.) (`en-US`)
+- Bundle identifier / Explicit App ID: `irodake.hinoshiba.com`
 - Screenshot size: 1440 × 900 px, opaque PNG, identical order in both locales
 - Public URLs: the GitHub Pages site built from `http_dist/`
 
-Copy each text file into the matching App Store Connect field. Never commit App Store Connect credentials, certificates, provisioning profiles, reviewer phone numbers, private legal addresses, or unreleased commercial terms here.
+Copy each text file into the matching App Store Connect field. Register the exact Explicit App ID above and generate the Mac App Store provisioning profile for it before building. Never commit App Store Connect credentials, certificates, provisioning profiles, reviewer phone numbers, private legal addresses, or unreleased commercial terms here.
 
 Run `./Scripts/audit-store-assets.sh` before submission. Screenshots are generated from actual Irodake UI captures by `swift Scripts/MakeStoreScreenshots.swift` and must not be retouched to show behavior the submitted build does not produce. Raw captures live in the gitignored `screenshots/source/<locale>/` workspace; only the reviewed, opaque App Store exports are committed.
 

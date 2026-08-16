@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111216">
-  <meta name="description" content="Irodake keeps selected places in color while turning the rest of your Mac display grayscale—or reverses the effect.">
+  <meta name="description" content="The official Irodake site, with features, examples, privacy details, support, and terms for the macOS selective-color utility.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Irodake — Color only where it matters.">
   <meta property="og:description" content="Gray the display. Keep chosen places in color.">
@@ -22,19 +22,21 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="./" aria-label="Irodake home">
+    <a class="brand" href="#top" aria-label="Irodake page top">
       <span class="brand-mark" aria-hidden="true"><span></span></span>
       <span>Irodake</span>
     </a>
     <nav aria-label="Main navigation">
       <a href="#features">Features</a>
-      <a href="support.html">Support</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="../" lang="ja">日本語</a>
+      <a href="#examples">Examples</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#support">Support</a>
+      <a href="#terms">Terms</a>
+      <a class="language-link" href="../" lang="ja" hreflang="ja">日本語</a>
     </nav>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">Selective color for macOS</p>
@@ -53,42 +55,211 @@
       <div class="hero-visual" aria-label="Irodake home screen">
         <div class="color-orbit orbit-one"></div>
         <div class="color-orbit orbit-two"></div>
-        <img src="../assets/app-dashboard-en.png" width="960" height="680" alt="Irodake configured to keep selected regions in color">
+        <img src="../assets/app-dashboard-en.png" width="960" height="680" alt="Irodake home screen configured to keep selected regions in color">
       </div>
     </section>
 
-    <section class="promise" id="features">
-      <article>
-        <span class="number">01</span>
-        <h2>Gray the outside</h2>
-        <p>Quiet the whole display while keeping a fixed region or tracked window area in its original color.</p>
-      </article>
-      <article>
-        <span class="number">02</span>
-        <h2>Gray only the inside</h2>
-        <p>Reverse the effect whenever you want: keep the display in color and gray only selected places.</p>
-      </article>
-      <article>
-        <span class="number">03</span>
-        <h2>Restore color instantly</h2>
-        <p>Master On/Off from the menu bar or keyboard. Hold one shortcut to peek at the full-color display.</p>
+    <section class="section-shell" id="features" aria-labelledby="features-title">
+      <header class="section-heading">
+        <p class="eyebrow">Features</p>
+        <h2 id="features-title">Keep color where <span>your focus is.</span></h2>
+        <p>Use a fixed region or a window. Irodake highlights the information you need without getting in the way of your usual workspace.</p>
+      </header>
+      <div class="promise">
+        <article>
+          <span class="number">01</span>
+          <h3>Gray the outside</h3>
+          <p>Quiet the whole display while keeping a fixed region or tracked window area in its original color.</p>
+        </article>
+        <article>
+          <span class="number">02</span>
+          <h3>Gray only the inside</h3>
+          <p>Reverse the effect whenever you want: keep the display in color and gray only selected places.</p>
+        </article>
+        <article>
+          <span class="number">03</span>
+          <h3>Restore color instantly</h3>
+          <p>Master On/Off from the menu bar or keyboard. Hold one shortcut to peek at the full-color display.</p>
+        </article>
+      </div>
+      <ul class="capability-list" aria-label="More features">
+        <li><strong>Fixed regions</strong><span>Drag to add any rectangle</span></li>
+        <li><strong>Window tracking</strong><span>Follows moves and resizes</span></li>
+        <li><strong>Multiple displays</strong><span>Processes each display live</span></li>
+        <li><strong>Keyboard control</strong><span>⌥⌘G to toggle, ⌥⌘C to peek at color</span></li>
+      </ul>
+    </section>
+
+    <section class="section-shell showcase" id="examples" aria-labelledby="examples-title">
+      <header class="section-heading">
+        <p class="eyebrow">See it in action</p>
+        <h2 id="examples-title">See every mode, <span>right on screen.</span></h2>
+        <p>These real app screens show the two display modes and how spots are managed. Select an image to view it at full size.</p>
+      </header>
+      <div class="effect-grid" aria-label="Comparison of the two display modes">
+        <figure class="effect-card">
+          <div class="effect-visual keep-color-effect" role="img" aria-label="Display preview with the whole screen in grayscale and only the selected area on the right in color">
+            <img class="effect-base" src="../assets/og.png" width="1200" height="630" loading="lazy" decoding="async" alt="">
+            <img class="effect-layer" src="../assets/og.png" width="1200" height="630" loading="lazy" decoding="async" alt="">
+            <span class="effect-selection" aria-hidden="true"></span>
+            <span class="effect-label">Keep Color</span>
+          </div>
+          <figcaption><strong>Gray the outside</strong><span>Only the selected area keeps its color.</span></figcaption>
+        </figure>
+        <figure class="effect-card">
+          <div class="effect-visual inverse-effect" role="img" aria-label="Display preview with the whole screen in color and only the selected area on the right in grayscale">
+            <img class="effect-base" src="../assets/og.png" width="1200" height="630" loading="lazy" decoding="async" alt="">
+            <img class="effect-layer" src="../assets/og.png" width="1200" height="630" loading="lazy" decoding="async" alt="">
+            <span class="effect-selection" aria-hidden="true"></span>
+            <span class="effect-label">Gray Here</span>
+          </div>
+          <figcaption><strong>Gray only the inside</strong><span>Reduce color stimulation only where you choose.</span></figcaption>
+        </figure>
+      </div>
+      <div class="showcase-grid">
+        <figure class="showcase-card showcase-card-wide">
+          <a href="../assets/sample-keep-color-en.png" aria-label="View the Keep Color sample at full size">
+            <img src="../assets/sample-keep-color-en.png" width="1440" height="900" loading="lazy" decoding="async" alt="Irodake Keep Color mode, which grays the display while selected places remain in color">
+          </a>
+          <figcaption><span class="number">01 — KEEP COLOR</span><h3>Keep the places you need in color</h3><p>Choose Keep Color, then add a fixed region or a tracked window area.</p></figcaption>
+        </figure>
+        <figure class="showcase-card">
+          <a href="../assets/sample-spots-en.png" aria-label="View the spot management sample at full size">
+            <img src="../assets/sample-spots-en.png" width="1440" height="900" loading="lazy" decoding="async" alt="Irodake Spots screen listing a fixed region and tracked window area">
+          </a>
+          <figcaption><span class="number">02 — SPOTS</span><h3>Use a region or a window</h3><p>Review multiple spots in one place, then add or remove them whenever needed.</p></figcaption>
+        </figure>
+        <figure class="showcase-card">
+          <a href="../assets/sample-inverse-en.png" aria-label="View the Gray Here sample at full size">
+            <img src="../assets/sample-inverse-en.png" width="1440" height="900" loading="lazy" decoding="async" alt="Irodake Gray Here mode, which keeps the display in color while selected places become grayscale">
+          </a>
+          <figcaption><span class="number">03 — INVERSE</span><h3>Reverse it in an instant</h3><p>Keep the display in color and gray only the places you select.</p></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="availability" id="availability" aria-labelledby="availability-title">
+      <p class="eyebrow">Built for your Mac</p>
+      <h2 id="availability-title">Quiet by design. Local by default.</h2>
+      <p>Frames are transformed live on your Mac. Irodake has no recording files, off-device screen transmission, analytics, or advertising SDKs.</p>
+      <div class="requirements">macOS 14 Sonoma or later · Apple public APIs · App Sandbox</div>
+    </section>
+
+    <section class="section-shell policy-section" id="privacy" aria-labelledby="privacy-title">
+      <header class="section-heading">
+        <p class="eyebrow">Privacy Policy</p>
+        <h2 id="privacy-title">Your screen stays <span>on your Mac.</span></h2>
+        <p>Last updated: August 16, 2026</p>
+      </header>
+      <div class="privacy-overview">
+        <div class="privacy-points">
+          <h3>At a glance</h3>
+          <ul class="check-list">
+            <li>Irodake processes display frames live in memory on your Mac.</li>
+            <li>It does not save or transmit screen images, video, audio, or window names.</li>
+            <li>It has no account, ads, analytics, crash upload, or third-party SDK.</li>
+          </ul>
+        </div>
+        <a class="privacy-image" href="../assets/sample-privacy-en.png" aria-label="View the Irodake privacy settings screen at full size">
+          <img src="../assets/sample-privacy-en.png" width="1440" height="900" loading="lazy" decoding="async" alt="Irodake settings screen explaining that display frames are not saved or sent">
+        </a>
+      </div>
+      <article class="document policy-grid">
+        <section>
+          <h3>Information handled by the app</h3>
+          <h4>Display frames</h4>
+          <p>Irodake uses macOS ScreenCaptureKit to obtain display frames so it can transform color in selected areas. Frames are processed in memory and on the GPU to produce the effect. They are never saved as recordings or sent off your Mac. Audio capture is disabled.</p>
+          <h4>Preferences</h4>
+          <p>Display mode, fixed regions, frame rate, and app language are stored locally in UserDefaults. Selected window names and identifiers are not persisted; tracked-window rules are discarded when the app quits.</p>
+          <h4>Screen Recording permission</h4>
+          <p>Irodake requires the macOS Screen &amp; System Audio Recording permission. macOS controls this permission, and you can revoke it in System Settings at any time. Irodake does not capture system audio.</p>
+        </section>
+        <section>
+          <h3>Collection and sharing</h3>
+          <p>The Irodake app does not collect, sell, or share personal data. It has no networking feature and includes no analytics, advertising, or crash-reporting SDK. If this design changes, the implementation, App Store privacy answers, and this policy will be updated in the same release.</p>
+        </section>
+        <section>
+          <h3>Delete local settings</h3>
+          <p>Turn Irodake off and quit it, then run <code>defaults delete irodake.hinoshiba.com</code> in Terminal to remove local preferences. If an App Sandbox container remains, open <code>~/Library/Containers/irodake.hinoshiba.com</code> with Finder’s Go to Folder command and remove it after uninstalling Irodake. Irodake has no server-side account or data to delete.</p>
+        </section>
+        <section>
+          <h3>This website</h3>
+          <p>This website uses no cookies, analytics scripts, advertising, or external web fonts. It is delivered through GitHub Pages, so GitHub may process technical information such as IP addresses for delivery and security. See the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>.</p>
+        </section>
+        <section>
+          <h3>Contact</h3>
+          <p>Questions about this policy can be sent to <a href="mailto:support@hinoshiba.com">support@hinoshiba.com</a> or filed in <a href="https://github.com/hinoshiba/Irodake/issues">GitHub Issues</a>. Operator: hinoshiba.</p>
+        </section>
       </article>
     </section>
 
-    <section class="availability" id="availability">
-      <p class="eyebrow">Built for your Mac</p>
-      <h2>Quiet by design. Local by default.</h2>
-      <p>Frames are transformed live on your Mac. Irodake has no recording files, off-device screen transmission, analytics, or advertising SDKs.</p>
-      <div class="requirements">macOS 14 Sonoma or later · Apple public APIs · App Sandbox</div>
+    <section class="section-shell" id="support" aria-labelledby="support-title">
+      <header class="section-heading">
+        <p class="eyebrow">Support</p>
+        <h2 id="support-title">Help is close. <span>Full color is closer.</span></h2>
+        <p>Turning Irodake off immediately removes its display effect.</p>
+      </header>
+      <div class="support-cards">
+        <a class="support-card" href="mailto:support@hinoshiba.com">
+          <span class="number">01</span><h3>Email</h3><p>support@hinoshiba.com</p>
+        </a>
+        <a class="support-card" href="https://github.com/hinoshiba/Irodake/issues">
+          <span class="number">02</span><h3>Report a bug</h3><p>Please include reproducible steps and your macOS version.</p>
+        </a>
+        <a class="support-card" href="https://github.com/hinoshiba/Irodake/security">
+          <span class="number">03</span><h3>Security</h3><p>Report vulnerabilities through the Security Policy, not a public issue.</p>
+        </a>
+      </div>
+      <article class="document support-document faq">
+        <section>
+          <h3>System requirements</h3>
+          <p>Irodake requires macOS 14 Sonoma or later and a Metal-capable Mac. It uses Screen Recording permission. It does not request Accessibility, Input Monitoring, Apple Events, or network permissions.</p>
+        </section>
+        <section>
+          <h3>Frequently asked questions</h3>
+          <details open><summary>Irodake will not turn on</summary><p>Open System Settings → Privacy &amp; Security → Screen &amp; System Audio Recording, allow Irodake, and choose Quit &amp; Reopen. Then turn Irodake on again.</p></details>
+          <details><summary>Color is not restored</summary><p>If the built-in macOS Color Filter is set to Grayscale, Irodake cannot recover the original color. Turn the filter off in System Settings → Accessibility → Display.</p></details>
+          <details><summary>Video appears black or frozen</summary><p>DRM or capture-protected content may appear black, frozen, or missing. Irodake does not bypass content protection.</p></details>
+          <details><summary>What is a Window Area?</summary><p>It follows the current rectangle of a selected window as it moves and resizes. If another window overlaps it, the overlapping content inside that rectangle receives the same effect. Tracking rules are discarded when the app quits.</p></details>
+          <details><summary>How do I remove the effect immediately?</summary><p>Turn Irodake off from its menu bar item or press ⌥⌘G. Quitting Irodake also removes the effect.</p></details>
+        </section>
+        <section>
+          <h3>What to include with a report</h3>
+          <ul>
+            <li>Irodake version</li>
+            <li>macOS version and Mac model</li>
+            <li>Display setup and reproducible steps</li>
+            <li>Error text that contains no personal or screen content</li>
+          </ul>
+          <p>You do not need to send a full-display screenshot or confidential information.</p>
+        </section>
+      </article>
+    </section>
+
+    <section class="section-shell terms-section" id="terms" aria-labelledby="terms-title">
+      <header class="section-heading">
+        <p class="eyebrow">Terms</p>
+        <h2 id="terms-title">The official app and <span>the open source.</span></h2>
+        <p>Last updated: August 16, 2026</p>
+      </header>
+      <article class="document terms-grid">
+        <section><h3>Mac App Store edition</h3><p>Irodake obtained through the Mac App Store is subject to Apple’s <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Standard Licensed Application End User License Agreement</a>, applicable law in your region, and App Store terms. Apple manages App Store purchase, billing, and refund processing.</p></section>
+        <section><h3>Open-source edition</h3><p>Irodake source code published on GitHub is provided under the <a href="https://github.com/hinoshiba/Irodake/blob/main/LICENSE">MIT License</a>. It permits use, modification, redistribution, and sale without warranty. See <a href="https://github.com/hinoshiba/Irodake/blob/main/THIRD_PARTY_LICENSES.txt">THIRD_PARTY_LICENSES.txt</a> for notices.</p></section>
+        <section><h3>Name and logo</h3><p>The MIT License does not grant permission to use the Irodake name, logo, or presentation in a way that implies an unofficial build is official. See the <a href="https://github.com/hinoshiba/Irodake/blob/main/TRADEMARKS.md">Trademark Policy</a>. Modified distributions must use a name and presentation that avoid confusion with the official app.</p></section>
+        <section><h3>Safe use</h3><p>Irodake is a display utility, not a medical device or diagnosis or treatment service. Turn it off whenever you need to verify an important color-coded display or warning. DRM and capture-protected content may not display correctly.</p></section>
+        <section><h3>Contact</h3><p>For support with the official edition, use <a href="#support">the support section on this page</a> or email <a href="mailto:support@hinoshiba.com">support@hinoshiba.com</a>.</p></section>
+      </article>
     </section>
   </main>
 
   <footer>
     <span>© 2026 hinoshiba</span>
     <div>
-      <a href="support.html">Support</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
+      <a href="#features">Features</a>
+      <a href="#examples">Examples</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#support">Support</a>
+      <a href="#terms">Terms</a>
       <a href="https://github.com/hinoshiba/Irodake/blob/main/LICENSE">MIT License</a>
     </div>
   </footer>

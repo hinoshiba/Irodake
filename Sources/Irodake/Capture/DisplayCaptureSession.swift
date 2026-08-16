@@ -23,7 +23,7 @@ final class DisplayCaptureSession: NSObject, SCStreamOutput, SCStreamDelegate {
         self.displayID = displayID
         self.renderer = renderer
         self.outputQueue = DispatchQueue(
-            label: "com.hinoshiba.irodake.capture.\(displayID)",
+            label: "irodake.hinoshiba.com.capture.\(displayID)",
             qos: .userInteractive
         )
         super.init()
