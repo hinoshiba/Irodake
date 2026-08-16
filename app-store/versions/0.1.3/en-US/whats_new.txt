@@ -1,0 +1,1 @@
+This update improves the release process and quality checks. App features and the privacy policy are unchanged.

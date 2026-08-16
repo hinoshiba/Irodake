@@ -38,7 +38,7 @@ After the first build, create or edit the release workflow in Xcode or App Store
 
 The pre-Xcodebuild script rejects an Archive unless its platform, scheme, bundle ID, and Team match Irodake, `CI_TAG` is exactly `vX.Y.Z`, the tag version matches both `project.yml` and the checked-in project, and `CI_BUILD_NUMBER` is a positive integer. It applies that Cloud number as `CURRENT_PROJECT_VERSION`. The post-Xcodebuild script then verifies the archived bundle ID, version/build, signature, App Sandbox entitlement, universal architectures, privacy/compliance resources, and dependency boundary before any distribution post-action.
 
-macOS build numbers must increase across marketing versions. In App Store Connect, open Irodake > Xcode Cloud > Settings > Build Number and set **Next Build Number** above the highest build already uploaded. The repository currently records build `4`, so use at least `5` unless App Store Connect already contains a higher build.
+macOS build numbers must increase across marketing versions. In App Store Connect, open Irodake > Xcode Cloud > Settings > Build Number and set **Next Build Number** at or above `CURRENT_PROJECT_VERSION` in `project.yml`, and above the highest build uploaded across all Irodake marketing versions.
 
 ## Protect release authority
 
@@ -58,7 +58,11 @@ small release group.
    ./Scripts/bump-version.sh 0.1.3
    ```
 
-2. Run the repository checks:
+2. Update `app-store/app.json`, the evidence version in
+   `app-store/app-privacy.md`, and both localized
+   `app-store/versions/<version>/*/whats_new.txt` files. The store-assets audit
+   rejects any mismatch with `project.yml`.
+3. Run the repository checks:
 
    ```sh
    swift build
@@ -69,9 +73,9 @@ small release group.
    ./Scripts/audit-store-assets.sh
    ```
 
-3. Complete the applicable checks in [TEST_MATRIX.md](TEST_MATRIX.md) on Intel and Apple silicon where available, including Screen Recording permission states, multiple displays, Spaces, sleep/wake, Japanese/English, VoiceOver, Reduce Motion, and failure recovery.
-4. Merge the version and metadata changes through a reviewed pull request. Wait for GitHub CI on the merge commit to pass.
-5. Create the release tag on that exact `main` commit and push it:
+4. Complete the applicable checks in [TEST_MATRIX.md](TEST_MATRIX.md) on Intel and Apple silicon where available, including Screen Recording permission states, multiple displays, Spaces, sleep/wake, Japanese/English, VoiceOver, Reduce Motion, and failure recovery.
+5. Merge the version and metadata changes through a reviewed pull request. Wait for GitHub CI on the merge commit to pass.
+6. Create the release tag on that exact `main` commit and push it:
 
    ```sh
    git tag -a v0.1.3 -m "Irodake 0.1.3"
