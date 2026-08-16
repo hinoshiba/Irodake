@@ -9,8 +9,11 @@ Issue と Pull Request を歓迎します。
 ```bash
 swift build
 swift test
-./build.sh
-./Scripts/audit-release.sh dist/Irodake.app
+xcodegen generate
+xcodebuild -project Irodake.xcodeproj -scheme Irodake -destination 'platform=macOS' test CODE_SIGNING_ALLOWED=NO
+./Scripts/audit-source.sh
+./Scripts/audit-brand.sh
+./Scripts/audit-store-assets.sh
 ```
 
 画面処理を変更する場合は [docs/TEST_MATRIX.md](docs/TEST_MATRIX.md) の該当項目を実機で確認してください。画面収録権限を要求する自動 UI テストは CI では実行しません。

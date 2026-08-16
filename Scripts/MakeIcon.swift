@@ -2,12 +2,11 @@ import AppKit
 import Foundation
 
 guard CommandLine.arguments.count == 2 else {
-    fputs("Usage: swift Scripts/MakeIcon.swift <output-directory>\n", stderr)
+    fputs("Usage: swift Scripts/MakeIcon.swift <AppIcon.appiconset>\n", stderr)
     exit(1)
 }
 
-let output = URL(fileURLWithPath: CommandLine.arguments[1], isDirectory: true)
-let iconset = output.appendingPathComponent("Irodake.iconset", isDirectory: true)
+let iconset = URL(fileURLWithPath: CommandLine.arguments[1], isDirectory: true)
 try FileManager.default.createDirectory(at: iconset, withIntermediateDirectories: true)
 
 let variants: [(name: String, pixels: Int)] = [

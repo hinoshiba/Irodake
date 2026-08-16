@@ -6,5 +6,8 @@ DerivedData/
 *.dSYM
 *.dmg
 .swiftpm/
+**/*.xcodeproj/xcuserdata/
+**/*.xcworkspace/xcuserdata/
+*.xcuserstate
 http_dist/download/
 app-store/screenshots/source/

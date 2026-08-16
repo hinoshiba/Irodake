@@ -1,0 +1,600 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		030BF6E92D06B110CF5D0B1C /* THIRD_PARTY_LICENSES.txt in Resources */ = {isa = PBXBuildFile; fileRef = 66253F0CCB0B2EA2BC2988D3 /* THIRD_PARTY_LICENSES.txt */; };
+		0908D079E72E389DF5E6DDBA /* OverlayWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD03D8534A475134108510 /* OverlayWindow.swift */; };
+		13D11554EAB8FC81C0BD5774 /* DesktopGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E53DB685A08308F8DA1CC /* DesktopGeometry.swift */; };
+		1927CEDFD364B663B23BDF68 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBA3CB7EEFF243E23F07767 /* RootView.swift */; };
+		1A0635BD73543BF12600F996 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AE8E19574D67AE38D1454 /* DashboardView.swift */; };
+		25DB2CDED05F4D0199811AC4 /* BrandMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545711BB07669C0334A44406 /* BrandMark.swift */; };
+		2966A3256F04C7C3066FD4DB /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C89C83AB430B4ECDDB55A /* AppSettings.swift */; };
+		31A515AB31D1DA95908D878F /* TRADEMARKS.md in Resources */ = {isa = PBXBuildFile; fileRef = EFE8F170046F3E2DFFF8657E /* TRADEMARKS.md */; };
+		32148151EF9B38654C6E0310 /* DesktopGeometryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05A383A5C4E662818C210B8 /* DesktopGeometryTests.swift */; };
+		3605681968F666993604842C /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D06B6B981512B5F01CF71A /* AppModel.swift */; };
+		37FF7BF55B8B42C76074FB55 /* RegionSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CD29179E1F38F88CA76C9 /* RegionSelectionController.swift */; };
+		3DE94D4C4396EB902D6A53AB /* MetalFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5FC516B4DE6101C6B0CD6 /* MetalFrameView.swift */; };
+		42A2A05F00DC45DB3DC12484 /* RegionSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8D435444C4D84F1BCFA2C /* RegionSelection.swift */; };
+		4E9ABE8315AAF6BDA1172A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA81F83163F5A8663EC34E8 /* Assets.xcassets */; };
+		6364FC8B8EF238B75B290079 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 3677B1F21C636F6594AE7B5A /* PrivacyInfo.xcprivacy */; };
+		6D2987ABEA61851E4B055F65 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF5E061268A35C2901E2AA4 /* OnboardingView.swift */; };
+		6E797C1F3D15B17B707E43CB /* CaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B25AB8AE67E9D2CD7E290 /* CaptureManager.swift */; };
+		8A102F515B15BCC8CDA08D59 /* IrodakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922AF7B3940DFCD932E4AE82 /* IrodakeApp.swift */; };
+		903613A2F0F8990AFE092DDC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451AA994B25BCA2BCB7DEE44 /* SettingsView.swift */; };
+		9419653D37FA077DBB03186F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 41B04A53D1D75865CD5DCDE1 /* LICENSE */; };
+		967CA263F5BEA2B37529D271 /* FilterMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C980E59AC0A288EA23B6EFDD /* FilterMode.swift */; };
+		9DA39D378FFB60D7677A52EF /* SpotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CECB14E65E7E476AD66C8 /* SpotsView.swift */; };
+		A5D7EF87DB205515E555B5ED /* DisplayCaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B605D3B2571FCB40313259 /* DisplayCaptureSession.swift */; };
+		AE0E20DA18CAB587C2B889B1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11661C4E0A531900EBCEE169 /* MainView.swift */; };
+		C7A980A3140F09640A5B6063 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B024A21DD7089E20E5F50960 /* AboutView.swift */; };
+		C92B8186F8716757DBB29F03 /* WindowPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3939B75D32C3F74DFD6A393D /* WindowPickerView.swift */; };
+		CABF7221A2BBB36EB54312EE /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013101B8412B77C3FEC97EF /* AppLanguage.swift */; };
+		D41AAA59FB5EEEEBBF861AF8 /* ScreenPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6183AEB40F195D14D0437AE4 /* ScreenPermission.swift */; };
+		D7228BE3818918EBCDC75A23 /* MenuBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212553CC184514463E68767 /* MenuBarContentView.swift */; };
+		E949FDE05D274E5B81EE5D8F /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFED8D4C99867B2214C8092 /* HotKeyManager.swift */; };
+		EBBE06DB1BADA001E1DA0C7A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72EEE42979E51ACC55728948 /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		847BD445D5D13AECC82887A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8070792F6CFD6B2E08B5ACD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 691047E2C041B9E8136B714A;
+			remoteInfo = Irodake;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08850102553A5063085E99DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		11661C4E0A531900EBCEE169 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		3103E9FA4983A667F26E564A /* IrodakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IrodakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3677B1F21C636F6594AE7B5A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		3939B75D32C3F74DFD6A393D /* WindowPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowPickerView.swift; sourceTree = "<group>"; };
+		3A7B25AB8AE67E9D2CD7E290 /* CaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureManager.swift; sourceTree = "<group>"; };
+		3CF5E061268A35C2901E2AA4 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		41B04A53D1D75865CD5DCDE1 /* LICENSE */ = {isa = PBXFileReference; path = LICENSE; sourceTree = "<group>"; };
+		43F8D435444C4D84F1BCFA2C /* RegionSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelection.swift; sourceTree = "<group>"; };
+		451AA994B25BCA2BCB7DEE44 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		486AE8E19574D67AE38D1454 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		52D06B6B981512B5F01CF71A /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		545711BB07669C0334A44406 /* BrandMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandMark.swift; sourceTree = "<group>"; };
+		5AD5FC516B4DE6101C6B0CD6 /* MetalFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalFrameView.swift; sourceTree = "<group>"; };
+		6183AEB40F195D14D0437AE4 /* ScreenPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenPermission.swift; sourceTree = "<group>"; };
+		652E53DB685A08308F8DA1CC /* DesktopGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopGeometry.swift; sourceTree = "<group>"; };
+		66253F0CCB0B2EA2BC2988D3 /* THIRD_PARTY_LICENSES.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = THIRD_PARTY_LICENSES.txt; sourceTree = "<group>"; };
+		6CBA3CB7EEFF243E23F07767 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		7AA81F83163F5A8663EC34E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8DCAB8025E16702C702C8BF3 /* Irodake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Irodake.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		922AF7B3940DFCD932E4AE82 /* IrodakeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrodakeApp.swift; sourceTree = "<group>"; };
+		A24C89C83AB430B4ECDDB55A /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		A93CD29179E1F38F88CA76C9 /* RegionSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionController.swift; sourceTree = "<group>"; };
+		AA6CECB14E65E7E476AD66C8 /* SpotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsView.swift; sourceTree = "<group>"; };
+		B024A21DD7089E20E5F50960 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		BFBD03D8534A475134108510 /* OverlayWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayWindow.swift; sourceTree = "<group>"; };
+		C013101B8412B77C3FEC97EF /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
+		C05A383A5C4E662818C210B8 /* DesktopGeometryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopGeometryTests.swift; sourceTree = "<group>"; };
+		C61332F2981CDF64E4355B75 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C980E59AC0A288EA23B6EFDD /* FilterMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMode.swift; sourceTree = "<group>"; };
+		D212553CC184514463E68767 /* MenuBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContentView.swift; sourceTree = "<group>"; };
+		DBFED8D4C99867B2214C8092 /* HotKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyManager.swift; sourceTree = "<group>"; };
+		E6B605D3B2571FCB40313259 /* DisplayCaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCaptureSession.swift; sourceTree = "<group>"; };
+		EFE8F170046F3E2DFFF8657E /* TRADEMARKS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TRADEMARKS.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0BC79CC3FE3CA67C43FABDB3 /* IrodakeTests */ = {
+			isa = PBXGroup;
+			children = (
+				C05A383A5C4E662818C210B8 /* DesktopGeometryTests.swift */,
+			);
+			path = IrodakeTests;
+			sourceTree = "<group>";
+		};
+		23DF8EE8A805741F22D9BB5D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7AA81F83163F5A8663EC34E8 /* Assets.xcassets */,
+				72EEE42979E51ACC55728948 /* InfoPlist.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2E804970FE4565DA15106772 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0BC79CC3FE3CA67C43FABDB3 /* IrodakeTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		694DEDE87ED540EF1A2432A6 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				652E53DB685A08308F8DA1CC /* DesktopGeometry.swift */,
+				DBFED8D4C99867B2214C8092 /* HotKeyManager.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		6FECC4F3F1D0458C95F674C1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B024A21DD7089E20E5F50960 /* AboutView.swift */,
+				545711BB07669C0334A44406 /* BrandMark.swift */,
+				486AE8E19574D67AE38D1454 /* DashboardView.swift */,
+				11661C4E0A531900EBCEE169 /* MainView.swift */,
+				D212553CC184514463E68767 /* MenuBarContentView.swift */,
+				3CF5E061268A35C2901E2AA4 /* OnboardingView.swift */,
+				6CBA3CB7EEFF243E23F07767 /* RootView.swift */,
+				451AA994B25BCA2BCB7DEE44 /* SettingsView.swift */,
+				AA6CECB14E65E7E476AD66C8 /* SpotsView.swift */,
+				3939B75D32C3F74DFD6A393D /* WindowPickerView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		726C5B5B4852732758A64D71 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C013101B8412B77C3FEC97EF /* AppLanguage.swift */,
+				A24C89C83AB430B4ECDDB55A /* AppSettings.swift */,
+				C980E59AC0A288EA23B6EFDD /* FilterMode.swift */,
+				43F8D435444C4D84F1BCFA2C /* RegionSelection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		89BE98CA366EAB7E853EE591 /* Irodake */ = {
+			isa = PBXGroup;
+			children = (
+				52D06B6B981512B5F01CF71A /* AppModel.swift */,
+				922AF7B3940DFCD932E4AE82 /* IrodakeApp.swift */,
+				BC3B339C05EE254861987233 /* Capture */,
+				726C5B5B4852732758A64D71 /* Models */,
+				694DEDE87ED540EF1A2432A6 /* Support */,
+				6FECC4F3F1D0458C95F674C1 /* UI */,
+			);
+			path = Irodake;
+			sourceTree = "<group>";
+		};
+		8B5C110F3DA419E81DB4D86C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DCAB8025E16702C702C8BF3 /* Irodake.app */,
+				3103E9FA4983A667F26E564A /* IrodakeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB840956315A36E5F51FF398 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				89BE98CA366EAB7E853EE591 /* Irodake */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		BC3B339C05EE254861987233 /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				3A7B25AB8AE67E9D2CD7E290 /* CaptureManager.swift */,
+				E6B605D3B2571FCB40313259 /* DisplayCaptureSession.swift */,
+				5AD5FC516B4DE6101C6B0CD6 /* MetalFrameView.swift */,
+				BFBD03D8534A475134108510 /* OverlayWindow.swift */,
+				A93CD29179E1F38F88CA76C9 /* RegionSelectionController.swift */,
+				6183AEB40F195D14D0437AE4 /* ScreenPermission.swift */,
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
+		C731C5CFE385CA0CC2076B1E = {
+			isa = PBXGroup;
+			children = (
+				41B04A53D1D75865CD5DCDE1 /* LICENSE */,
+				3677B1F21C636F6594AE7B5A /* PrivacyInfo.xcprivacy */,
+				66253F0CCB0B2EA2BC2988D3 /* THIRD_PARTY_LICENSES.txt */,
+				EFE8F170046F3E2DFFF8657E /* TRADEMARKS.md */,
+				23DF8EE8A805741F22D9BB5D /* Resources */,
+				BB840956315A36E5F51FF398 /* Sources */,
+				2E804970FE4565DA15106772 /* Tests */,
+				8B5C110F3DA419E81DB4D86C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5BA7F8C4721BF75799102B68 /* IrodakeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47E6CAAD0EBF3FFA6ECCD966 /* Build configuration list for PBXNativeTarget "IrodakeTests" */;
+			buildPhases = (
+				EB29124F0097082CDB5F8FFD /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F53142D6A24823EFD8C6F339 /* PBXTargetDependency */,
+			);
+			name = IrodakeTests;
+			packageProductDependencies = (
+			);
+			productName = IrodakeTests;
+			productReference = 3103E9FA4983A667F26E564A /* IrodakeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		691047E2C041B9E8136B714A /* Irodake */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90CA424B5A85CCD7C25C38DF /* Build configuration list for PBXNativeTarget "Irodake" */;
+			buildPhases = (
+				890621C83B9AC56AC651B4A8 /* Sources */,
+				22784AC6CCA483FFF6317E83 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Irodake;
+			packageProductDependencies = (
+			);
+			productName = Irodake;
+			productReference = 8DCAB8025E16702C702C8BF3 /* Irodake.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B8070792F6CFD6B2E08B5ACD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					5BA7F8C4721BF75799102B68 = {
+						DevelopmentTeam = 94HVVWXLK3;
+						ProvisioningStyle = Automatic;
+					};
+					691047E2C041B9E8136B714A = {
+						DevelopmentTeam = 94HVVWXLK3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 751D41056AEAC2BDC1342A45 /* Build configuration list for PBXProject "Irodake" */;
+			developmentRegion = ja;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+				ja,
+			);
+			mainGroup = C731C5CFE385CA0CC2076B1E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 8B5C110F3DA419E81DB4D86C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				691047E2C041B9E8136B714A /* Irodake */,
+				5BA7F8C4721BF75799102B68 /* IrodakeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22784AC6CCA483FFF6317E83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E9ABE8315AAF6BDA1172A4B /* Assets.xcassets in Resources */,
+				EBBE06DB1BADA001E1DA0C7A /* InfoPlist.strings in Resources */,
+				9419653D37FA077DBB03186F /* LICENSE in Resources */,
+				6364FC8B8EF238B75B290079 /* PrivacyInfo.xcprivacy in Resources */,
+				030BF6E92D06B110CF5D0B1C /* THIRD_PARTY_LICENSES.txt in Resources */,
+				31A515AB31D1DA95908D878F /* TRADEMARKS.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		890621C83B9AC56AC651B4A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7A980A3140F09640A5B6063 /* AboutView.swift in Sources */,
+				CABF7221A2BBB36EB54312EE /* AppLanguage.swift in Sources */,
+				3605681968F666993604842C /* AppModel.swift in Sources */,
+				2966A3256F04C7C3066FD4DB /* AppSettings.swift in Sources */,
+				25DB2CDED05F4D0199811AC4 /* BrandMark.swift in Sources */,
+				6E797C1F3D15B17B707E43CB /* CaptureManager.swift in Sources */,
+				1A0635BD73543BF12600F996 /* DashboardView.swift in Sources */,
+				13D11554EAB8FC81C0BD5774 /* DesktopGeometry.swift in Sources */,
+				A5D7EF87DB205515E555B5ED /* DisplayCaptureSession.swift in Sources */,
+				967CA263F5BEA2B37529D271 /* FilterMode.swift in Sources */,
+				E949FDE05D274E5B81EE5D8F /* HotKeyManager.swift in Sources */,
+				8A102F515B15BCC8CDA08D59 /* IrodakeApp.swift in Sources */,
+				AE0E20DA18CAB587C2B889B1 /* MainView.swift in Sources */,
+				D7228BE3818918EBCDC75A23 /* MenuBarContentView.swift in Sources */,
+				3DE94D4C4396EB902D6A53AB /* MetalFrameView.swift in Sources */,
+				6D2987ABEA61851E4B055F65 /* OnboardingView.swift in Sources */,
+				0908D079E72E389DF5E6DDBA /* OverlayWindow.swift in Sources */,
+				42A2A05F00DC45DB3DC12484 /* RegionSelection.swift in Sources */,
+				37FF7BF55B8B42C76074FB55 /* RegionSelectionController.swift in Sources */,
+				1927CEDFD364B663B23BDF68 /* RootView.swift in Sources */,
+				D41AAA59FB5EEEEBBF861AF8 /* ScreenPermission.swift in Sources */,
+				903613A2F0F8990AFE092DDC /* SettingsView.swift in Sources */,
+				9DA39D378FFB60D7677A52EF /* SpotsView.swift in Sources */,
+				C92B8186F8716757DBB29F03 /* WindowPickerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB29124F0097082CDB5F8FFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32148151EF9B38654C6E0310 /* DesktopGeometryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F53142D6A24823EFD8C6F339 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 691047E2C041B9E8136B714A /* Irodake */;
+			targetProxy = 847BD445D5D13AECC82887A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		72EEE42979E51ACC55728948 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				08850102553A5063085E99DD /* en */,
+				C61332F2981CDF64E4355B75 /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		31FF6D84CD54AEC8349CF48F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Irodake.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hinoshiba.irodake;
+				PRODUCT_NAME = Irodake;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		40B1CD2082C88F67B1B4F48A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 4;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 94HVVWXLK3;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.10;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		64917B7766503E04C8C65ADB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Irodake.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hinoshiba.irodake;
+				PRODUCT_NAME = Irodake;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		78B79788EBB562279543325F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hinoshiba.irodake.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Irodake.app/Contents/MacOS/Irodake";
+			};
+			name = Debug;
+		};
+		A3CE0DA6FB4A03754E9BD8A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hinoshiba.irodake.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Irodake.app/Contents/MacOS/Irodake";
+			};
+			name = Release;
+		};
+		DDD07DAE2A504A1BD97EE6C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 4;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 94HVVWXLK3;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.10;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47E6CAAD0EBF3FFA6ECCD966 /* Build configuration list for PBXNativeTarget "IrodakeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78B79788EBB562279543325F /* Debug */,
+				A3CE0DA6FB4A03754E9BD8A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		751D41056AEAC2BDC1342A45 /* Build configuration list for PBXProject "Irodake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40B1CD2082C88F67B1B4F48A /* Debug */,
+				DDD07DAE2A504A1BD97EE6C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		90CA424B5A85CCD7C25C38DF /* Build configuration list for PBXNativeTarget "Irodake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64917B7766503E04C8C65ADB /* Debug */,
+				31FF6D84CD54AEC8349CF48F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B8070792F6CFD6B2E08B5ACD /* Project object */;
+}
