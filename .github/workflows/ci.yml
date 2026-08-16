@@ -25,24 +25,49 @@ jobs:
           swift --version
           xcodebuild -version
 
+      - name: Install pinned XcodeGen
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error \
+            https://github.com/yonaskolb/XcodeGen/releases/download/2.45.4/xcodegen.zip \
+            --output "${RUNNER_TEMP}/xcodegen.zip"
+          echo "090ec29491aad50aec10631bf6e62253fed733c50f3aab0f5ffc86bc170bdbef  ${RUNNER_TEMP}/xcodegen.zip" \
+            | shasum -a 256 --check
+          unzip -q "${RUNNER_TEMP}/xcodegen.zip" -d "${RUNNER_TEMP}"
+          echo "${RUNNER_TEMP}/xcodegen/bin" >> "${GITHUB_PATH}"
+
       - name: Validate scripts and manifests
         run: |
-          zsh -n build.sh Scripts/*.sh
-          plutil -lint Info.plist PrivacyInfo.xcprivacy Irodake.entitlements Irodake.direct.entitlements
+          zsh -n Scripts/*.sh
+          sh -n ci_scripts/*.sh
+          for script in ci_scripts/*.sh; do test -x "$script"; done
+          plutil -lint Info.plist PrivacyInfo.xcprivacy Irodake.entitlements
           plutil -lint Resources/ja.lproj/InfoPlist.strings Resources/en.lproj/InfoPlist.strings
+          ./Scripts/audit-source.sh
           ./Scripts/audit-brand.sh
           ./Scripts/audit-store-assets.sh
+
+      - name: Verify committed Xcode project
+        run: |
+          set -euo pipefail
+          xcodegen generate
+          generated_state=$(git status --porcelain=v1 --untracked-files=all)
+          if [ -n "${generated_state}" ]; then
+            git status --short --untracked-files=all
+            exit 1
+          fi
 
       - name: Build and test
         run: |
           swift build
           swift test
 
-      - name: Assemble and audit app
+      - name: Build and test Xcode scheme
         run: |
-          ./build.sh
-          ./Scripts/audit-release.sh dist/Irodake.app
-
-      - name: Confirm clean dependency graph
-        run: |
-          swift package show-dependencies --format json
+          xcodebuild \
+            -project Irodake.xcodeproj \
+            -scheme Irodake \
+            -destination 'platform=macOS' \
+            build test \
+            CODE_SIGNING_ALLOWED=NO

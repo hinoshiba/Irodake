@@ -5,19 +5,19 @@ This directory is the public, non-secret source of truth for Irodake's Mac App S
 - Primary language: Japanese (`ja`)
 - Additional localization: English (U.S.) (`en-US`)
 - Bundle identifier / Explicit App ID: `com.hinoshiba.irodake`
-- Screenshot size: 1440 × 900 px, opaque PNG, identical order in both locales
+- Screenshot size: 1440 x 900 px, opaque PNG, identical order in both locales
 - Public URLs: the GitHub Pages site built from `http_dist/`
 
-Copy each text file into the matching App Store Connect field. Register the exact Explicit App ID above and generate the Mac App Store provisioning profile for it before building. Never commit App Store Connect credentials, certificates, provisioning profiles, reviewer phone numbers, private legal addresses, or unreleased commercial terms here.
+Copy each text file into the matching App Store Connect field. Never commit App Store Connect credentials, certificates, provisioning profiles, reviewer phone numbers, private legal addresses, or unreleased commercial terms here.
 
-## Signing policy
+## Xcode Cloud distribution
 
-Mac App Store releases for Apple Developer Team `94HVVWXLK3` use the existing team-wide Mac App Store distribution private key shared by hinoshiba apps. Both the `Mac App Distribution` and `Mac Installer Distribution` certificates are issued from that key; do not generate an Irodake-specific distribution key. The Explicit App ID and provisioning profile remain app-specific (`com.hinoshiba.irodake`).
+Mac App Store archives are built and uploaded only by Xcode Cloud using automatic signing for Apple Developer Team `94HVVWXLK3`. The Xcode Cloud product must resolve the existing App Store Connect record and Explicit App ID `com.hinoshiba.irodake`; do not create a replacement record or an app-specific distribution key.
 
-Confirm that the shared private key is present in the login keychain before issuing or renewing a certificate. If it is missing, stop and ask the repository owner rather than creating a replacement. Keep its encrypted backup in the owner's approved secret storage only. Private keys, `.p12` files, CSRs, certificates, provisioning profiles, passwords, API keys, and App Store Connect credentials must not be committed.
+The release workflow starts from a `vX.Y.Z` tag on `main`, runs tests, archives the shared `Irodake` scheme for macOS with **TestFlight and App Store** deployment preparation, and uploads the result to App Store Connect. See [the release runbook](../docs/RELEASE.md) and [code-signing policy](../docs/CODE_SIGNING.md). Local Mac App Store packages, Developer ID disk images, and local credential environment variables are no longer part of the release process.
 
-Run `./Scripts/audit-store-assets.sh` before submission. Screenshots are generated from actual Irodake UI captures by `swift Scripts/MakeStoreScreenshots.swift` and must not be retouched to show behavior the submitted build does not produce. Raw captures live in the gitignored `screenshots/source/<locale>/` workspace; only the reviewed, opaque App Store exports are committed.
+Run `./Scripts/audit-store-assets.sh` before submission. Screenshots are generated from actual Irodake UI captures by `swift Scripts/MakeStoreScreenshots.swift` and must not be retouched to show behavior the submitted build does not produce. Raw captures live in the gitignored `screenshots/source/<locale>/` workspace; only reviewed, opaque App Store exports are committed.
 
 The first release does not use a custom EULA, in-app purchases, subscriptions, accounts, analytics, advertising, or third-party content. App privacy is declared as **Data Not Collected**.
 
-App Store Connect still requires account-only information that must not be committed: the reviewer's name and phone number, the legal seller name, agreements, tax and banking data, price, and territories. Start with `review-contact.template.json`, enter those values directly in App Store Connect, and keep credentials and personal data outside this repository.
+App Store Connect still requires account-only information that must not be committed: the reviewer's name and phone number, legal seller name, agreements, tax and banking data, price, and territories. Start with `review-contact.template.json`, enter those values directly in App Store Connect, and keep credentials and personal data outside this repository.

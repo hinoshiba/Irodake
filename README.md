@@ -30,22 +30,21 @@ Accessibility、Input Monitoring、Apple Events、ネットワークの各権限
 
 ## ビルド
 
-Xcode 26.6 / Swift 6.3で検証しています。外部パッケージやHomebrew依存はありません。
+Xcode 26.6 / Swift 6.3で検証しています。runtimeの外部パッケージ依存はありません。`project.yml`を変更する場合のみ[XcodeGen](https://github.com/yonaskolb/XcodeGen)が必要です。
 
 ```bash
 swift build
 swift test
-
-./build.sh
-open dist/Irodake.app
+xcodebuild \
+  -project Irodake.xcodeproj \
+  -scheme Irodake \
+  -destination 'platform=macOS' \
+  build CODE_SIGNING_ALLOWED=NO
 ```
 
-`./build.sh` はrelease binary、独自生成アイコン、MIT License、第三者通知、Privacy Manifest、日英の権限説明を含むad-hoc署名済み `dist/Irodake.app` を作ります。配布用の `--dist` と `--store` は、署名ID・公証profile・provisioning profileを環境変数で明示しない限り失敗する安全設計です。
+`project.yml`がXcode project設定の正本です。Xcode Cloudが常に解決できるよう、生成した`Irodake.xcodeproj`とshared schemeもリポジトリに含めます。構成を変更したら`xcodegen generate`を実行し、両方を同じPRで更新してください。
 
-```bash
-./Scripts/audit-release.sh dist/Irodake.app
-./Scripts/audit-store-assets.sh
-```
+App Store向けの署名・archive・uploadはローカルで行いません。バージョン更新のPRをmergeした後、`vX.Y.Z`形式のタグをpushするとXcode Cloudがtest・archive・App Store Connectへのuploadを実行します。詳細は[release runbook](docs/RELEASE.md)を参照してください。プライバシー・公開API・依存関係は`./Scripts/audit-source.sh`、Storeメタデータは`./Scripts/audit-store-assets.sh`で検査できます。
 
 ## 使い方
 

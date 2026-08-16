@@ -7,9 +7,14 @@ echo "==> Verify canonical brand identifiers"
 CANONICAL_BUNDLE_ID="com.hinoshiba.irodake"
 
 if [[ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleDisplayName' Info.plist)" != "Irodake" ]] || \
-   [[ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleExecutable' Info.plist)" != "Irodake" ]] || \
-   [[ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' Info.plist)" != "$CANONICAL_BUNDLE_ID" ]]; then
+   [[ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleExecutable' Info.plist)" != '$(EXECUTABLE_NAME)' ]] || \
+   [[ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' Info.plist)" != '$(PRODUCT_BUNDLE_IDENTIFIER)' ]]; then
     print -u2 "Info.plist brand identifiers are inconsistent."
+    exit 1
+fi
+
+if [[ "$(sed -n 's/^[[:space:]]*PRODUCT_BUNDLE_IDENTIFIER: //p' project.yml | head -1)" != "$CANONICAL_BUNDLE_ID" ]]; then
+    print -u2 "Xcode project bundle identifier is inconsistent."
     exit 1
 fi
 
