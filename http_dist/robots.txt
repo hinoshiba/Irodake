@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.hinoshiba.com/Irodake/sitemap.xml
+Sitemap: https://irodake.hinoshiba.com/sitemap.xml

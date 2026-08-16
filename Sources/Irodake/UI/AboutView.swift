@@ -56,6 +56,6 @@ struct AboutView: View {
 
     private var privacyURL: URL {
         let path = model.language == .japanese ? "#privacy" : "en/#privacy"
-        return URL(string: "https://www.hinoshiba.com/Irodake/\(path)")!
+        return URL(string: "https://irodake.hinoshiba.com/\(path)")!
     }
 }

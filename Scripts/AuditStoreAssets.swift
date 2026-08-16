@@ -124,12 +124,12 @@ for locale in locales {
 }
 
 let expectedURLs: [String: String] = [
-    "app-store/metadata/ja/marketing_url.txt": "https://www.hinoshiba.com/Irodake/",
-    "app-store/metadata/ja/support_url.txt": "https://www.hinoshiba.com/Irodake/#support",
-    "app-store/metadata/ja/privacy_policy_url.txt": "https://www.hinoshiba.com/Irodake/#privacy",
-    "app-store/metadata/en-US/marketing_url.txt": "https://www.hinoshiba.com/Irodake/en/",
-    "app-store/metadata/en-US/support_url.txt": "https://www.hinoshiba.com/Irodake/en/#support",
-    "app-store/metadata/en-US/privacy_policy_url.txt": "https://www.hinoshiba.com/Irodake/en/#privacy",
+    "app-store/metadata/ja/marketing_url.txt": "https://irodake.hinoshiba.com/",
+    "app-store/metadata/ja/support_url.txt": "https://irodake.hinoshiba.com/#support",
+    "app-store/metadata/ja/privacy_policy_url.txt": "https://irodake.hinoshiba.com/#privacy",
+    "app-store/metadata/en-US/marketing_url.txt": "https://irodake.hinoshiba.com/en/",
+    "app-store/metadata/en-US/support_url.txt": "https://irodake.hinoshiba.com/en/#support",
+    "app-store/metadata/en-US/privacy_policy_url.txt": "https://irodake.hinoshiba.com/en/#privacy",
 ]
 for (path, expected) in expectedURLs where text(at: path) != expected {
     fail("Unexpected public URL in \(path)")
