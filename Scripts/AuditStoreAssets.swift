@@ -28,14 +28,34 @@ private func text(at path: String) -> String? {
     }
 }
 
-private let requiredFiles = [
+private let projectMarketingVersion: String? = {
+    guard let project = text(at: "project.yml") else { return nil }
+    for line in project.split(separator: "\n") {
+        let fields = line.split(separator: ":", maxSplits: 1)
+        guard fields.count == 2,
+              fields[0].trimmingCharacters(in: .whitespaces) == "MARKETING_VERSION" else {
+            continue
+        }
+        let value = fields[1]
+            .trimmingCharacters(in: .whitespaces)
+            .trimmingCharacters(in: CharacterSet(charactersIn: "\"'"))
+        let pattern = #"^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$"#
+        guard value.range(of: pattern, options: .regularExpression) != nil else {
+            fail("project.yml MARKETING_VERSION must use canonical X.Y.Z syntax")
+            return nil
+        }
+        return value
+    }
+    fail("project.yml is missing MARKETING_VERSION")
+    return nil
+}()
+
+private var requiredFiles = [
     "app-store/app.json",
     "app-store/app-privacy.md",
     "app-store/app-review-notes.txt",
     "app-store/asset-manifest.json",
     "app-store/review-contact.template.json",
-    "app-store/versions/0.1.2/ja/whats_new.txt",
-    "app-store/versions/0.1.2/en-US/whats_new.txt",
     "http_dist/index.html",
     "http_dist/en/index.html",
     "http_dist/assets/site.css",
@@ -52,6 +72,12 @@ private let requiredFiles = [
     "http_dist/robots.txt",
     "http_dist/sitemap.xml",
 ]
+if let projectMarketingVersion {
+    requiredFiles += [
+        "app-store/versions/\(projectMarketingVersion)/ja/whats_new.txt",
+        "app-store/versions/\(projectMarketingVersion)/en-US/whats_new.txt",
+    ]
+}
 
 for path in requiredFiles where !fileManager.fileExists(atPath: fileURL(path).path) {
     fail("Missing required submission resource: \(path)")
@@ -83,9 +109,25 @@ for path in [
 }
 
 if let data = try? Data(contentsOf: fileURL("app-store/app.json")),
-   let app = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-   app["bundleIdentifier"] as? String != canonicalBundleIdentifier {
-    fail("app-store/app.json must use bundle identifier \(canonicalBundleIdentifier)")
+   let app = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
+    if app["bundleIdentifier"] as? String != canonicalBundleIdentifier {
+        fail("app-store/app.json must use bundle identifier \(canonicalBundleIdentifier)")
+    }
+    if let appVersion = app["version"] as? String, !appVersion.isEmpty {
+        if let projectMarketingVersion, appVersion != projectMarketingVersion {
+            fail("app-store/app.json version \(appVersion) does not match project.yml \(projectMarketingVersion)")
+        }
+    } else {
+        fail("app-store/app.json is missing version")
+    }
+} else if fileManager.fileExists(atPath: fileURL("app-store/app.json").path) {
+    fail("app-store/app.json must contain a JSON object")
+}
+
+if let projectMarketingVersion,
+   let privacyEvidence = text(at: "app-store/app-privacy.md"),
+   !privacyEvidence.contains("Evidence for version \(projectMarketingVersion):") {
+    fail("app-store/app-privacy.md evidence version does not match project.yml \(projectMarketingVersion)")
 }
 
 let characterLimits: [(field: String, limit: Int)] = [
@@ -117,9 +159,15 @@ for locale in locales {
         }
     }
 
-    let whatsNewPath = "app-store/versions/0.1.2/\(locale)/whats_new.txt"
-    if let value = text(at: whatsNewPath), value.count > 4_000 {
-        fail("\(whatsNewPath) exceeds 4,000 characters")
+    if let projectMarketingVersion {
+        let whatsNewPath = "app-store/versions/\(projectMarketingVersion)/\(locale)/whats_new.txt"
+        if let value = text(at: whatsNewPath) {
+            if value.isEmpty {
+                fail("\(whatsNewPath) must not be empty")
+            } else if value.count > 4_000 {
+                fail("\(whatsNewPath) exceeds 4,000 characters")
+            }
+        }
     }
 }
 
