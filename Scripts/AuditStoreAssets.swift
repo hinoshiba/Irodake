@@ -7,7 +7,7 @@ import UniformTypeIdentifiers
 
 private let root = URL(fileURLWithPath: FileManager.default.currentDirectoryPath, isDirectory: true)
 private let fileManager = FileManager.default
-private let canonicalBundleIdentifier = "irodake.hinoshiba.com"
+private let canonicalBundleIdentifier = "com.hinoshiba.irodake"
 private var failures: [String] = []
 
 private func fail(_ message: String) {
@@ -34,8 +34,8 @@ private let requiredFiles = [
     "app-store/app-review-notes.txt",
     "app-store/asset-manifest.json",
     "app-store/review-contact.template.json",
-    "app-store/versions/0.1.0/ja/whats_new.txt",
-    "app-store/versions/0.1.0/en-US/whats_new.txt",
+    "app-store/versions/0.1.2/ja/whats_new.txt",
+    "app-store/versions/0.1.2/en-US/whats_new.txt",
     "http_dist/index.html",
     "http_dist/en/index.html",
     "http_dist/assets/site.css",
@@ -117,7 +117,7 @@ for locale in locales {
         }
     }
 
-    let whatsNewPath = "app-store/versions/0.1.0/\(locale)/whats_new.txt"
+    let whatsNewPath = "app-store/versions/0.1.2/\(locale)/whats_new.txt"
     if let value = text(at: whatsNewPath), value.count > 4_000 {
         fail("\(whatsNewPath) exceeds 4,000 characters")
     }

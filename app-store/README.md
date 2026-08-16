@@ -4,7 +4,7 @@ This directory is the public, non-secret source of truth for Irodake's Mac App S
 
 - Primary language: Japanese (`ja`)
 - Additional localization: English (U.S.) (`en-US`)
-- Bundle identifier / Explicit App ID: `irodake.hinoshiba.com`
+- Bundle identifier / Explicit App ID: `com.hinoshiba.irodake`
 - Screenshot size: 1440 × 900 px, opaque PNG, identical order in both locales
 - Public URLs: the GitHub Pages site built from `http_dist/`
 

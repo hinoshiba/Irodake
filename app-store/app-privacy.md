@@ -2,7 +2,7 @@
 
 Select **No, we do not collect data from this app** in App Store Connect.
 
-Evidence for version 0.1.0:
+Evidence for version 0.1.2:
 
 - Screen frames are processed in memory with ScreenCaptureKit, Core Image, and Metal.
 - Screen images, video, audio, window titles, and tracked-window identifiers are not transmitted.

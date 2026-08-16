@@ -6,7 +6,7 @@ import QuartzCore
 
 final class MetalFrameView: NSView {
     private let metalLayer = CAMetalLayer()
-    private let renderQueue = DispatchQueue(label: "irodake.hinoshiba.com.render", qos: .userInteractive)
+    private let renderQueue = DispatchQueue(label: "com.hinoshiba.irodake.render", qos: .userInteractive)
     private let ciContext: CIContext
     private let commandQueue: MTLCommandQueue
     private let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
