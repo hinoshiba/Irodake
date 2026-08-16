@@ -39,11 +39,6 @@ final class OverlayWindow: NSWindow {
         }
     }
 
-    func prepareForCaptureDiscovery() {
-        guard presentationEnabled else { return }
-        orderFrontRegardless()
-    }
-
     func disablePresentation() {
         presentationEnabled = false
         orderOut(nil)

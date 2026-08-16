@@ -36,25 +36,29 @@ final class CaptureManager {
                 return (number.uint32Value, window)
             }
         pendingWindows = prepared.map(\.window)
-        // SCK only reports on-screen windows here. These fresh CAMetalLayers
-        // are transparent until a frame is rendered, so briefly order them to
-        // obtain stable IDs for feedback-loop exclusion.
-        pendingWindows.forEach { $0.prepareForCaptureDiscovery() }
 
         do {
-            // Fetch after creating the transparent overlays so the fallback
-            // window filter can exclude them even if the process isn't listed.
+            // Exclude this process at the application level. Transparent overlay
+            // windows are not guaranteed to appear in SCShareableContent's window
+            // list, so relying on per-window discovery can create a feedback loop
+            // or prevent capture from starting. Add the app's ordinary windows
+            // back as exceptions so its settings UI remains visible through the
+            // full-screen effect.
             let content = try await SCShareableContent.excludingDesktopWindows(
                 false,
-                onScreenWindowsOnly: true
+                onScreenWindowsOnly: false
             )
             guard generation == operationGeneration else { throw CancellationError() }
             let overlayIDs = Set(prepared.map { CGWindowID($0.window.windowNumber) })
-            let overlayWindows = content.windows.filter {
-                overlayIDs.contains($0.windowID)
-            }
-            guard overlayWindows.count == prepared.count else {
+            let processID = ProcessInfo.processInfo.processIdentifier
+            guard let ownApplication = content.applications.first(where: {
+                $0.processID == processID
+            }) else {
                 throw CaptureError.cannotExcludeOverlays
+            }
+            let ordinaryAppWindows = content.windows.filter { window in
+                window.owningApplication?.processID == processID
+                    && !overlayIDs.contains(window.windowID)
             }
             prepared.forEach { $0.window.setCaptureVisible(false) }
             let availableDisplayIDs = Set(content.displays.map(\.displayID))
@@ -72,7 +76,8 @@ final class CaptureManager {
 
                 let filter = SCContentFilter(
                     display: display,
-                    excludingWindows: overlayWindows
+                    excludingApplications: [ownApplication],
+                    exceptingWindows: ordinaryAppWindows
                 )
                 let contentPixelSize = CGSize(
                     width: filter.contentRect.width * CGFloat(filter.pointPixelScale),
