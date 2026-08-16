@@ -1,0 +1,1 @@
+monochrome,color filter,menu bar,display focus,region,productivity,window tracking

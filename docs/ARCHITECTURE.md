@@ -34,8 +34,9 @@ AppModel (@MainActor)
 - output は BGRA / SDR、音声なし、cursor なし。
 - `queueDepth = 2`、既定 30 fps。
 - `.complete` / `.started` の frame を処理し、`.blank` / `.suspended` / `.stopped` では古い overlay を即時非表示にする。
-- `SCContentFilter` で効果用 overlay window だけを除外し、feedback loop を防止する。通常の Irodake 設定画面はキャプチャ対象に含める。
-- overlay は content query より先に作り、self application が取得できない場合も window 単位で除外できるようにする。
+- `SCContentFilter` でIrodake自身をapplication単位で除外し、明示的に許可した通常ウインドウだけを例外として含める。効果用overlayの列挙状態へ依存せずfeedback loopを防止する。
+- 自processの `SCRunningApplication` を安全に特定できない場合は開始を中止する。空の除外条件でcaptureを続けない。
+- overlayは最初の有効frameまで非表示にし、停止世代の遅延callbackでは再表示しない。
 
 ### Rendering
 
@@ -98,12 +99,3 @@ ScreenCaptureKit / Quartz の global rect は primary display 左上原点、App
 - HDR requires a distinct capture/render/color-space path.
 - a transparent hole affects every visible pixel in that rectangle, not only the selected owner window.
 - ScreenCaptureKit use is visible in macOS system privacy UI and must not be hidden.
-
-## Future work
-
-- normalized display-UUID-based fixed region persistence
-- HDR local-display preset and 16-bit float render path
-- Instruments-based energy benchmark and adaptive frame rate
-- stale-frame watchdog
-- event-driven AX follow-focus as an explicitly optional permission tier
-- `SCContentSharingPicker` evaluation for window selection

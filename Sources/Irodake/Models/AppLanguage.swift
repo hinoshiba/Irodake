@@ -14,7 +14,15 @@ enum AppLanguage: String, Codable, CaseIterable, Identifiable {
     }
 
     static var systemDefault: AppLanguage {
-        Locale.preferredLanguages.first?.hasPrefix("ja") == true ? .japanese : .english
+        bestMatch(preferredLanguages: Locale.preferredLanguages)
+    }
+
+    static func bestMatch(preferredLanguages: [String]) -> AppLanguage {
+        for identifier in preferredLanguages {
+            if identifier.hasPrefix("ja") { return .japanese }
+            if identifier.hasPrefix("en") { return .english }
+        }
+        return .japanese
     }
 }
 

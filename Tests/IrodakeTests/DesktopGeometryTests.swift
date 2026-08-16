@@ -4,6 +4,21 @@ import XCTest
 @testable import Irodake
 
 final class DesktopGeometryTests: XCTestCase {
+    func testLanguageNegotiationUsesFirstSupportedPreference() {
+        XCTAssertEqual(
+            AppLanguage.bestMatch(preferredLanguages: ["fr-FR", "ja-JP", "en-US"]),
+            .japanese
+        )
+        XCTAssertEqual(
+            AppLanguage.bestMatch(preferredLanguages: ["de-DE", "en-GB", "ja-JP"]),
+            .english
+        )
+        XCTAssertEqual(
+            AppLanguage.bestMatch(preferredLanguages: ["fr-FR"]),
+            .japanese
+        )
+    }
+
     @MainActor
     func testWindowSubclassInitializersDoNotTrap() throws {
         guard let screen = NSScreen.main else {

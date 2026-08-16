@@ -9,6 +9,7 @@ if [[ ! -d "$APP" ]]; then
 fi
 
 ./Scripts/audit-brand.sh
+./Scripts/audit-store-assets.sh
 
 echo "==> Validate property lists"
 plutil -lint Info.plist PrivacyInfo.xcprivacy Irodake.entitlements Irodake.direct.entitlements

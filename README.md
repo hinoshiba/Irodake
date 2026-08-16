@@ -1,11 +1,12 @@
 # Irodake — 色は、必要な場所だけ。
 
-Irodake は、Mac 全体をグレースケールにしながら選んだ範囲だけカラーを残したり、その逆に選んだ範囲だけをグレーにしたりできる、ネイティブ macOS アプリです。
+Irodakeは、Mac全体をグレースケールにしながら選んだ範囲だけカラーを残したり、その逆に選んだ範囲だけをグレーにしたりできる、ネイティブmacOSアプリです。
 
-通常のアプリウインドウとメニューバーの両方から操作できます。画面はこの Mac 上でリアルタイム処理され、画像・音声の保存、外部送信、テレメトリ、広告はありません。
+通常のアプリウインドウとメニューバーの両方から操作できます。画面はこのMac上でリアルタイム処理され、画像・音声の保存、外部送信、テレメトリ、広告はありません。
 
-> [!IMPORTANT]
-> 現在は動作する MVP / 技術検証版です。署名・公証済みの一般配布や Mac App Store 公開を行う前に、[実機テスト項目](docs/TEST_MATRIX.md)と[商用公開ゲート](docs/COMMERCIAL_RELEASE_GATES.md)を完了してください。`Irodake` は公開情報による一次名称調査を通過していますが、商標の法的クリアランスと App Store Connect・ドメイン等の予約は未完了です。根拠と残課題は[ブランド監査](docs/BRAND_AUDIT.md)を参照してください。
+[公式サイト](https://www.hinoshiba.com/Irodake/) · [English](https://www.hinoshiba.com/Irodake/en/) · [Privacy](https://www.hinoshiba.com/Irodake/privacy.html) · [Support](https://www.hinoshiba.com/Irodake/support.html)
+
+![Irodakeのカラーを残すモード](app-store/screenshots/ja/01-keep-color.png)
 
 ## できること
 
@@ -13,23 +14,23 @@ Irodake は、Mac 全体をグレースケールにしながら選んだ範囲�
 - **ここだけグレー** — 画面全体はカラーのまま、選択スポットだけグレーで表示
 - **固定範囲** — 任意の矩形をドラッグして追加
 - **ウインドウ領域** — 選択ウインドウの矩形へ移動・リサイズ追従
-- **一括 ON / OFF** — メニューバーまたは `⌥⌘G`
+- **一括ON / OFF** — メニューバーまたは `⌥⌘G`
 - **カラーピーク** — `⌥⌘C` を押している間だけ元の全カラーを確認
-- **複数ディスプレイ** — ディスプレイごとに ScreenCaptureKit stream を構成
+- **複数ディスプレイ** — ディスプレイごとにScreenCaptureKit streamを構成
 - **日本語 / English** — アプリ内で切り替え
-- **ログイン時起動** — macOS 標準の `SMAppService` を使用
+- **ログイン時起動** — macOS標準の `SMAppService` を使用
 
 ## 必要環境
 
-- macOS 14 Sonoma 以降
-- Metal 対応 Mac
-- 「画面とシステムオーディオの収録」の許可
+- macOS 14 Sonoma以降
+- Metal対応Mac
+- 「画面収録とシステムオーディオ録音」の許可
 
 Accessibility、Input Monitoring、Apple Events、ネットワークの各権限は使いません。音声キャプチャも無効です。
 
 ## ビルド
 
-Xcode 26.6 / Swift 6.3 で検証しています。外部パッケージや Homebrew 依存はありません。
+Xcode 26.6 / Swift 6.3で検証しています。外部パッケージやHomebrew依存はありません。
 
 ```bash
 swift build
@@ -39,62 +40,52 @@ swift test
 open dist/Irodake.app
 ```
 
-`./build.sh` は release binary、独自生成アイコン、MIT License、第三者通知、Privacy Manifest、日英の権限説明を含む ad-hoc 署名済み `dist/Irodake.app` を作ります。
+`./build.sh` はrelease binary、独自生成アイコン、MIT License、第三者通知、Privacy Manifest、日英の権限説明を含むad-hoc署名済み `dist/Irodake.app` を作ります。配布用の `--dist` と `--store` は、署名ID・公証profile・provisioning profileを環境変数で明示しない限り失敗する安全設計です。
 
-配布ビルドは [docs/RELEASE.md](docs/RELEASE.md) を参照してください。
+```bash
+./Scripts/audit-release.sh dist/Irodake.app
+./Scripts/audit-store-assets.sh
+```
 
 ## 使い方
 
-1. Irodake を起動し、3画面のオンボーディングを確認します。
-2. macOS の画面収録許可を与えます。
+1. Irodakeを起動し、オンボーディングを確認します。
+2. macOSの画面収録許可を与えます。
 3. 「カラーを残す」または「ここだけグレー」を選びます。
 4. 固定範囲かウインドウ領域を追加します。
-5. トグルを ON にします。
+5. トグルをONにします。
 
-ウインドウ領域は実際には対象ウインドウの現在の矩形です。他のウインドウが上に重なると、重なった部分にも同じ表示効果が適用されます。追跡ルールはプライバシーと `CGWindowID` 再利用事故を避けるため、アプリ終了時に破棄されます。
+ウインドウ領域は対象ウインドウの現在の矩形です。他のウインドウが上に重なると、重なった部分にも同じ表示効果が適用されます。追跡ルールはプライバシーと `CGWindowID` 再利用事故を避けるため、アプリ終了時に破棄されます。
 
-## 仕組み
+## 仕組みと制約
 
-```text
-ScreenCaptureKit（1 display = 1 stream）
-  → CVPixelBuffer / IOSurface
-  → Core Image + Metal で saturation = 0
-  → クリック透過 CAMetalLayer overlay
-  → CAShapeLayer mask でカラー／グレーのスポットを作成
-```
-
-公開 API と App Sandbox の範囲だけで実装しています。詳細は [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) を参照してください。
-
-## 既知の制約
+IrodakeはAppleの公開APIとApp Sandboxの範囲で、ScreenCaptureKitのフレームをCore Image + Metalで変換し、クリック透過overlayへ表示します。詳しくは[Architecture](docs/ARCHITECTURE.md)をご覧ください。
 
 - 表示はリアルタイム再描画のため、1〜2フレーム程度遅れる場合があります。
-- DRM / capture-protected content は黒、静止画、または欠落として表示される場合があります。回避処理は行いません。
-- 初期版は SDR。HDR / XDR の正確な色管理は公開前の追加検証対象です。
-- 4K / 5K の複数画面では GPU・メモリ帯域・電力を使います。既定は 30 fps です。
-- macOS 標準のシステムグレースケールが既に ON の場合、Irodake がカラーを復元することはできません。
-- スリープ、画面消灯、ユーザー切替では最初に効果を外して一時停止し、同じ起動セッション内で直前にONだった場合だけ復帰後に再開します。権限取消やキャプチャエラー時はOFFにします。
+- DRM / capture-protected contentは黒、静止画、または欠落として表示される場合があります。回避処理は行いません。
+- 初期版はSDRです。4K / 5Kの複数画面ではGPU・メモリ帯域・電力を使います。既定は30 fpsです。
+- macOS標準のシステムグレースケールがONの場合、Irodakeがカラーを復元することはできません。
+- OFF、スリープ、権限取消、キャプチャエラー時はoverlayを先に外すfail-open設計です。
+
+実機確認項目は[Release Test Matrix](docs/TEST_MATRIX.md)にあります。
 
 ## プライバシー
 
-Irodake は画面フレームを GPU で処理しますが、画面画像や音声をファイルへ保存せず、Mac の外へ送信しません。ネットワーク通信コードと分析 SDK はありません。
+Irodakeは画面フレームをGPUで処理しますが、画面画像や音声をファイルへ保存せず、Macの外へ送信しません。ネットワーク通信コードと分析SDKはありません。
 
-詳しくは [Privacy Policy](docs/PRIVACY.md) を参照してください。
+正式な日英ポリシーは[Privacy Policy](https://www.hinoshiba.com/Irodake/privacy.html)で公開します。提出用のApp Privacy根拠は[app-store/app-privacy.md](app-store/app-privacy.md)にあります。
 
-## OSS と商用販売
+## OSSと公式配布
 
-ソースコードは [MIT License](LICENSE) です。自作ビルドを無料で利用でき、公式の署名・公証済みバイナリを有償販売できます。MIT は第三者による再配布・販売も許すため、公式版の価値は署名、更新、サポート、品質保証、正式ブランドで提供します。
+ソースコードは[MIT License](LICENSE)です。利用、改変、再配布、販売ができます。現在のruntime依存はAppleのOS提供frameworkだけで、外部コード・バイナリはありません。通知は[THIRD_PARTY_LICENSES.txt](THIRD_PARTY_LICENSES.txt)にまとめています。
 
-現在の runtime 依存は Apple の OS 提供 framework だけです。外部コード・バイナリはありません。[THIRD_PARTY_LICENSES.txt](THIRD_PARTY_LICENSES.txt) と [ライセンス監査](docs/LICENSE_AUDIT.md) を参照してください。
+`Irodake` の名称とロゴはコードライセンスとは別です。改変版を公式版と誤認させないため、[Trademark Policy](TRADEMARKS.md)もご確認ください。
 
-名称、商標、販売条件、各国消費者法はコードライセンスと別問題です。[商用公開ゲート](docs/COMMERCIAL_RELEASE_GATES.md)を完了し、必要な法域の専門家へ確認してから販売してください。
+Mac App Storeの日英メタデータ、審査メモ、プライバシー回答、スクリーンショットは[app-store](app-store/)にあります。Webサイトの配布物は[http_dist](http_dist/)です。
 
-## 開発・報告
+## 参加・報告
 
 - [Contributing](CONTRIBUTING.md)
 - [Security Policy](SECURITY.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Product Strategy](docs/PRODUCT_STRATEGY.md)
-- [Brand Audit](docs/BRAND_AUDIT.md)
-- [Trademark Policy](TRADEMARKS.md)
-
-Irodake の運用設計は [Youyaku](https://github.com/hinoshiba/youyaku) の署名・公証・ライセンス表示・リリース不変性の考え方を参考にしつつ、Irodake は App Sandbox と外部依存ゼロを維持しています。Youyaku のソースや配布バイナリは組み込んでいません。
+- [Dependency Policy](docs/DEPENDENCY_POLICY.md)

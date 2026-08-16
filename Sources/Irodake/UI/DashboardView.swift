@@ -241,12 +241,13 @@ struct SelectionRow: View {
     let selection: RegionSelection
 
     var body: some View {
+        let displayName = model.displayName(for: selection)
         HStack(spacing: 12) {
             Image(systemName: selection.systemImage)
                 .foregroundStyle(.tint)
                 .frame(width: 24)
             VStack(alignment: .leading, spacing: 2) {
-                Text(selection.name).lineLimit(1)
+                Text(displayName).lineLimit(1)
                 if selection.applicationName != nil {
                     Text(selection.isVisible == false
                          ? L10n.text("待機中", "Waiting", language: model.language)
@@ -268,8 +269,8 @@ struct SelectionRow: View {
             .buttonStyle(.borderless)
             .foregroundStyle(.secondary)
             .accessibilityLabel(L10n.text(
-                "\(selection.name) スポットを削除",
-                "Remove \(selection.name) spot",
+                "\(displayName) スポットを削除",
+                "Remove \(displayName) spot",
                 language: model.language
             ))
         }

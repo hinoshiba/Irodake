@@ -31,6 +31,8 @@
 	<false/>
 	<key>LSMinimumSystemVersion</key>
 	<string>14.0</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.utilities</string>
 	<key>LSUIElement</key>
 	<false/>
 	<key>NSHighResolutionCapable</key>
@@ -38,7 +40,7 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>© 2026 hinoshiba</string>
 	<key>NSScreenCaptureUsageDescription</key>
-	<string>Irodake processes the display on this Mac in real time to change color in regions you choose. It does not save screen images or audio to files or transmit them off this Mac.</string>
+	<string>Irodakeは、選択した領域の表示色を切り替えるため、画面をこのMac上でリアルタイム処理します。画面画像や音声をファイルへ保存したり、外部へ送信したりしません。</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>

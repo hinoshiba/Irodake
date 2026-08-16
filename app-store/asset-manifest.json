@@ -1,0 +1,15 @@
+{
+  "screenshots": {
+    "creator": "hinoshiba",
+    "source": "Actual Irodake 0.1.0 UI captured on macOS with first-party demo regions",
+    "postProcessing": "Opaque 1440x900 layout, localized headline, scaling, and framing only",
+    "thirdPartyContent": false,
+    "locales": ["ja", "en-US"],
+    "countPerLocale": 4
+  },
+  "appIcon": {
+    "creator": "hinoshiba",
+    "generator": "Scripts/MakeIcon.swift",
+    "thirdPartyContent": false
+  }
+}

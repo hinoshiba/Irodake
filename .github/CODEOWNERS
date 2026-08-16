@@ -5,5 +5,5 @@
 /Irodake*.entitlements @hinoshiba
 /Scripts/ @hinoshiba
 /.github/workflows/ @hinoshiba
-/docs/RELEASE.md @hinoshiba
-/docs/LICENSE_AUDIT.md @hinoshiba
+/app-store/ @hinoshiba
+/http_dist/ @hinoshiba

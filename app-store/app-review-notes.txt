@@ -1,0 +1,12 @@
+Irodake is a menu bar and windowed macOS utility that applies selective grayscale using ScreenCaptureKit and a click-through Metal overlay.
+
+No account or network connection is required.
+
+Review steps:
+1. Launch Irodake and complete the three onboarding screens.
+2. Allow Screen Recording when requested. If macOS asks for a restart, reopen Irodake.
+3. Keep “Keep Color” selected, add a fixed region by dragging, and turn the effect on. The display becomes grayscale while the selected rectangle remains in color.
+4. Select “Gray Selected” to verify the inverse effect.
+5. Use Option-Command-G for master On/Off and hold Option-Command-C to temporarily reveal full color.
+
+The Screen Recording permission is required only to process frames locally. Irodake does not record to a file, capture audio, transmit data, or use private APIs. Protected/DRM content may appear blank or frozen because the app does not bypass capture protection.

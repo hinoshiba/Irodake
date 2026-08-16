@@ -1,0 +1,21 @@
+Color only where it matters.
+
+Irodake turns your display grayscale while keeping the places you choose in color. Or invert the effect: keep the display in color and gray only selected places.
+
+Choose where color appears
+• Add fixed regions by dragging anywhere
+• Track a window’s rectangular area as it moves and resizes
+• Use multiple spots across multiple displays
+
+Switch in a second
+• Master On/Off from the menu bar
+• Press ⌥⌘G to turn the effect on or off
+• Hold ⌥⌘C to show the entire display in color
+• Open at Login
+
+Processed only on your Mac
+Screen frames are processed live on your Mac. Irodake does not save screen images or video, capture audio, or send screen content off your Mac. There are no accounts, ads, or analytics SDKs.
+
+Requires macOS 14 Sonoma or later, a Metal-capable Mac, and Screen Recording permission. A tracked window is treated as a rectangle, so overlapping windows receive the same effect within that area. Tracked window rules reset when the app quits. DRM or capture-protected content may appear black, frozen, or missing. Irodake cannot restore color if grayscale is enabled in macOS System Settings.
+
+Irodake is open source under the MIT License.

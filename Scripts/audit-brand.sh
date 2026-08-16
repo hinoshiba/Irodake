@@ -18,7 +18,7 @@ fi
 
 LEGACY=$(git grep --untracked -nE \
     'Sukima|sukima|SUKM|com\.hinoshiba\.sukima|github\.com/hinoshiba/Sukima' \
-    -- . ':!docs/BRAND_AUDIT.md' ':!Scripts/audit-brand.sh' || true)
+    -- . ':!Scripts/audit-brand.sh' ':!Scripts/audit-store-assets.sh' || true)
 
 if [[ -n "$LEGACY" ]]; then
     print -u2 "Unexpected legacy brand identifier found:"

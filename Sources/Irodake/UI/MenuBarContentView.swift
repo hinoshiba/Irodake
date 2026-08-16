@@ -54,7 +54,7 @@ struct MenuBarContentView: View {
                     Button(role: .destructive) {
                         model.removeSelection(id: selection.id)
                     } label: {
-                        Label(selection.name, systemImage: "xmark")
+                        Label(model.displayName(for: selection), systemImage: "xmark")
                     }
                 }
             }

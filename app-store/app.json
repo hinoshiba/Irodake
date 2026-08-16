@@ -1,0 +1,19 @@
+{
+  "platform": "macOS",
+  "primaryLanguage": "ja",
+  "localizations": ["ja", "en-US"],
+  "bundleIdentifier": "com.hinoshiba.irodake",
+  "sku": "irodake-macos",
+  "version": "0.1.0",
+  "primaryCategory": "public.app-category.utilities",
+  "secondaryCategory": "public.app-category.productivity",
+  "copyright": "2026 hinoshiba",
+  "minimumSystemVersion": "14.0",
+  "ageRating": "4+",
+  "containsThirdPartyContent": false,
+  "usesNonExemptEncryption": false,
+  "signInRequired": false,
+  "appPrivacy": "data-not-collected",
+  "customEULA": false,
+  "releaseOption": "manual"
+}

@@ -240,6 +240,17 @@ final class AppModel: ObservableObject {
         settings.selections.removeAll()
     }
 
+    func displayName(for selection: RegionSelection) -> String {
+        guard selection.kind == .rectangle else { return selection.name }
+        let rectangles = settings.selections.filter { $0.kind == .rectangle }
+        let number = rectangles.firstIndex(where: { $0.id == selection.id }).map { $0 + 1 } ?? 1
+        return L10n.text(
+            "固定範囲 \(number)",
+            "Fixed Region \(number)",
+            language: language
+        )
+    }
+
     func completeOnboarding() {
         settings.hasCompletedOnboarding = true
     }
@@ -253,7 +264,11 @@ final class AppModel: ObservableObject {
             }
             settings.launchAtLogin = enabled
         } catch {
-            lastError = error.localizedDescription
+            lastError = L10n.text(
+                "ログイン時起動の設定を変更できませんでした。",
+                "Open at Login could not be changed.",
+                language: language
+            )
         }
     }
 
@@ -479,7 +494,11 @@ final class AppModel: ObservableObject {
                 )
             }
         } else {
-            lastError = error.localizedDescription
+            lastError = L10n.text(
+                "画面効果を開始できなかったため、IrodakeをOFFにしました。",
+                "Irodake was turned off because the screen effect could not start.",
+                language: language
+            )
         }
         settings.isEnabled = false
         isPeeking = false

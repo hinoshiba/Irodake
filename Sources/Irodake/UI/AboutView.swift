@@ -9,7 +9,12 @@ struct AboutView: View {
             BrandMark(size: 82)
             VStack(spacing: 5) {
                 Text("Irodake").font(.largeTitle.bold())
-                Text("Version \(version)").foregroundStyle(.secondary)
+                Text(L10n.text(
+                    "バージョン \(version)",
+                    "Version \(version)",
+                    language: model.language
+                ))
+                .foregroundStyle(.secondary)
             }
             Text(L10n.text("色は、必要な場所だけ。", "Color only where it matters.", language: model.language))
                 .font(.title3.weight(.medium))
@@ -28,7 +33,7 @@ struct AboutView: View {
                 Link(destination: URL(string: "https://github.com/hinoshiba/Irodake/blob/main/LICENSE")!) {
                     Label("MIT License", systemImage: "doc.text")
                 }
-                Link(destination: URL(string: "https://github.com/hinoshiba/Irodake/blob/main/docs/PRIVACY.md")!) {
+                Link(destination: privacyURL) {
                     Label(L10n.text("プライバシー", "Privacy", language: model.language), systemImage: "hand.raised")
                 }
                 Link(destination: URL(string: "https://github.com/hinoshiba/Irodake/security")!) {
@@ -47,5 +52,10 @@ struct AboutView: View {
 
     private var version: String {
         Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.1.0"
+    }
+
+    private var privacyURL: URL {
+        let path = model.language == .japanese ? "privacy.html" : "en/privacy.html"
+        return URL(string: "https://www.hinoshiba.com/Irodake/\(path)")!
     }
 }
