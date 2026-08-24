@@ -139,8 +139,16 @@ final class AppModel: ObservableObject {
     }
 
     func requestPermission() {
-        _ = ScreenPermission.request()
-        permissionGranted = ScreenPermission.isGranted
+        let requestGranted = ScreenPermission.request()
+        permissionGranted = requestGranted || ScreenPermission.isGranted
+        guard permissionGranted else {
+            lastError = L10n.text(
+                "画面収録が許可されませんでした。システム設定の「プライバシーとセキュリティ」でIrodakeを許可してください。",
+                "Screen Recording access was not granted. Allow Irodake in Privacy & Security in System Settings.",
+                language: language
+            )
+            return
+        }
     }
 
     func openPermissionSettings() {
